@@ -3,34 +3,143 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Meri Pehli Website</title>
+  <title>Modern Website</title>
   <style>
+    /* Basic Reset */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
     body {
-      font-family: Arial, sans-serif;
-      text-align: center;
-      background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
-      color: #222;
-      padding: 50px;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      background: #f0f4f8;
+      color: #333;
     }
-    h1 { color: #0070f3; }
-    p { font-size: 18px; }
-    button {
+
+    /* Navbar */
+    nav {
+      background: #0070f3;
+      padding: 15px 30px;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 20px;
+      font-weight: bold;
+    }
+    nav a:hover { opacity: 0.8; }
+
+    /* Hero Section */
+    .hero {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 80vh;
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+      text-align: center;
+      color: #fff;
+      padding: 0 20px;
+    }
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+    }
+    .hero p {
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+    }
+    .hero button {
+      padding: 12px 30px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      background: white;
+      color: #ff5f7d;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+    .hero button:hover {
+      background: #ffe0e6;
+    }
+
+    /* Features Section */
+    .features {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      padding: 50px 20px;
+      background: #fff;
+    }
+    .feature-card {
+      background: #f5f5f5;
+      border-radius: 10px;
+      padding: 20px;
+      margin: 15px;
+      width: 250px;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      transition: 0.3s;
+    }
+    .feature-card:hover { transform: translateY(-5px); }
+    .feature-card h3 { margin-bottom: 10px; color: #0070f3; }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 20px;
       background: #0070f3;
       color: white;
-      padding: 10px 20px;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      margin-top: 20px;
     }
-    button:hover {
-      background: #0055c3;
+
+    /* Responsive */
+    @media(max-width:768px){
+      .features { flex-direction: column; align-items: center; }
     }
   </style>
 </head>
 <body>
-  <h1>👋 नमस्ते, ये मेरी पहली वेबसाइट है!</h1>
-  <p>मैंने इसे GitHub और Vercel की मदद से बनाया है 😄</p>
-  <button onclick="alert('धन्यवाद! आप मेरी वेबसाइट पर आए 😊')">Click Me</button>
+
+  <!-- Navbar -->
+  <nav>
+    <div class="logo">MyWebsite</div>
+    <div class="menu">
+      <a href="#features">Features</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1>👋 नमस्ते! यह मेरी Modern Website है</h1>
+    <p>GitHub और Render की मदद से बनाई गई, बिलकुल Vercel जैसी look</p>
+    <button onclick="alert('धन्यवाद! आप मेरी Modern Website पर आए 😊')">Click Me</button>
+  </section>
+
+  <!-- Features Section -->
+  <section class="features" id="features">
+    <div class="feature-card">
+      <h3>Fast</h3>
+      <p>Website बहुत जल्दी load होती है।</p>
+    </div>
+    <div class="feature-card">
+      <h3>Responsive</h3>
+      <p>Mobile और Desktop दोनों पर perfect दिखती है।</p>
+    </div>
+    <div class="feature-card">
+      <h3>Modern</h3>
+      <p>Clean और professional design।</p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer id="contact">
+    © 2025 My Modern Website
+  </footer>
+
 </body>
 </html>
