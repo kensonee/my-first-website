@@ -1,70 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Select Your Device</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-  </head>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Select Your Device | Ledger</title>
+  <style>
+    body {
+      background-color: #111;
+      color: white;
+      font-family: "Courier New", monospace;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+    }
 
-  <body class="bg-[#0e0e0e] text-white min-h-screen flex flex-col items-center justify-start font-mono pt-12">
-    
-    <!-- Back Button -->
-    <div class="absolute top-6 left-6">
-      <a href="index.html" class="flex items-center space-x-2 text-gray-400 hover:text-white transition">
-        <span class="text-xl">←</span>
-        <span class="text-sm tracking-widest">Previous</span>
-      </a>
+    h1 {
+      font-size: 1.8rem;
+      margin-top: 40px;
+      letter-spacing: 2px;
+    }
+
+    .device-container {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 50px;
+      margin-top: 60px;
+      padding-bottom: 80px;
+    }
+
+    .device-card {
+      background-color: #1a1a1a;
+      border-radius: 20px;
+      padding: 30px 20px;
+      width: 230px;
+      text-align: center;
+      transition: all 0.3s ease-in-out;
+    }
+
+    .device-card:hover {
+      transform: translateY(-10px);
+      background-color: #222;
+    }
+
+    .device-card img {
+      width: 130px;
+      height: auto;
+      margin-bottom: 20px;
+      object-fit: contain;
+      filter: drop-shadow(0 0 5px #000);
+    }
+
+    .device-card h3 {
+      font-size: 1.1rem;
+      margin-bottom: 15px;
+    }
+
+    .device-card button {
+      background-color: white;
+      color: black;
+      border: none;
+      border-radius: 25px;
+      padding: 10px 25px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: all 0.2s ease-in-out;
+    }
+
+    .device-card button:hover {
+      background-color: #00ffb3;
+      color: black;
+    }
+  </style>
+</head>
+<body>
+  <h1>[ LEDGER ]<br>SELECT YOUR DEVICE</h1>
+
+  <div class="device-container">
+    <div class="device-card">
+      <img src="one1.png" alt="Ledger Stax" />
+      <h3>Ledger Stax</h3>
+      <button>Select</button>
     </div>
 
-    <!-- Logo -->
-    <div class="text-center mb-10">
-      <h1 class="text-lg font-semibold tracking-widest">[ LEDGER ]</h1>
+    <div class="device-card">
+      <img src="flex_3x.png" alt="Ledger Flex" />
+      <h3>Ledger Flex</h3>
+      <button>Select</button>
     </div>
 
-    <!-- Heading -->
-    <h2 class="text-2xl tracking-widest mb-14 text-center font-semibold">
-      SELECT YOUR DEVICE
-    </h2>
-
-    <!-- Device Grid -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 px-8 w-full max-w-6xl">
-      
-      <!-- Ledger Stax -->
-      <div class="flex flex-col items-center bg-[#141414] rounded-2xl p-8 hover:shadow-[0_0_20px_rgba(255,255,255,0.1)] transition-all duration-200">
-        <img src="one1.png" alt="Ledger Stax" class="w-40 h-40 object-contain mb-6" />
-        <h3 class="text-xl font-semibold mb-4">Ledger Stax</h3>
-        <a href="#" class="bg-white text-black rounded-full px-6 py-2 font-semibold hover:bg-gray-200 transition">
-          Select
-        </a>
-      </div>
-
-      <!-- Ledger Flex -->
-      <div class="flex flex-col items-center bg-[#141414] rounded-2xl p-8 hover:shadow-[0_0_20px_rgba(255,255,255,0.1)] transition-all duration-200">
-        <img src="flex_3x.png" alt="Ledger Flex" class="w-40 h-40 object-contain mb-6" />
-        <h3 class="text-xl font-semibold mb-4">Ledger Flex</h3>
-        <a href="#" class="bg-white text-black rounded-full px-6 py-2 font-semibold hover:bg-gray-200 transition">
-          Select
-        </a>
-      </div>
-
-      <!-- Ledger Nano S & Plus -->
-      <div class="flex flex-col items-center bg-[#141414] rounded-2xl p-8 hover:shadow-[0_0_20px_rgba(255,255,255,0.1)] transition-all duration-200">
-        <img src="three123.png" alt="Ledger Nano S & Plus" class="w-40 h-40 object-contain mb-6" />
-        <h3 class="text-xl font-semibold mb-4">Ledger Nano S & Plus</h3>
-        <a href="#" class="bg-white text-black rounded-full px-6 py-2 font-semibold hover:bg-gray-200 transition">
-          Select
-        </a>
-      </div>
-
-      <!-- Ledger Nano X -->
-      <div class="flex flex-col items-center bg-[#141414] rounded-2xl p-8 hover:shadow-[0_0_20px_rgba(255,255,255,0.1)] transition-all duration-200">
-        <img src="four123.png" alt="Ledger Nano X" class="w-40 h-40 object-contain mb-6" />
-        <h3 class="text-xl font-semibold mb-4">Ledger Nano X</h3>
-        <a href="#" class="bg-white text-black rounded-full px-6 py-2 font-semibold hover:bg-gray-200 transition">
-          Select
-        </a>
-      </div>
+    <div class="device-card">
+      <img src="three123.png" alt="Ledger Nano S & Plus" />
+      <h3>Ledger Nano S & Plus</h3>
+      <button>Select</button>
     </div>
-  </body>
+
+    <div class="device-card">
+      <img src="four123.png" alt="Ledger Nano X" />
+      <h3>Ledger Nano X</h3>
+      <button>Select</button>
+    </div>
+  </div>
+</body>
 </html>
