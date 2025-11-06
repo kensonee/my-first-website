@@ -3,134 +3,120 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ledger Device Selection</title>
+  <title>Ledger Devices</title>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
-
     body {
-      font-family: 'Press Start 2P', monospace;
-      background-color: #0e0c0c;
-      color: #fff;
+      background-color: #0d0c0c;
+      color: white;
+      font-family: 'Courier New', monospace;
+      text-align: center;
       margin: 0;
       padding: 0;
-      text-align: center;
     }
 
-    h1, h2 {
-      margin: 10px 0;
+    h1 {
+      margin-top: 60px;
       letter-spacing: 2px;
     }
 
-    .container {
-      display: flex;
-      justify-content: center;
-      align-items: flex-start;
-      flex-wrap: wrap;
-      gap: 2rem;
-      padding: 2rem;
+    .devices {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 30px;
+      justify-items: center;
+      padding: 60px 8%;
     }
 
-    .card {
+    .device {
       background-color: #1a1a1a;
-      border-radius: 20px;
-      width: 260px;
-      padding: 1.5rem;
-      text-align: center;
-      box-shadow: 0px 4px 10px rgba(0,0,0,0.4);
-      transition: transform 0.3s ease, background-color 0.3s ease;
+      border-radius: 18px;
+      padding: 40px 20px;
+      width: 100%;
+      max-width: 260px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
-    .card:hover {
-      transform: scale(1.05);
-      background-color: #2c2c2c;
+    .device:hover {
+      transform: translateY(-10px);
+      box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.15);
     }
 
-    .card img {
+    .device img {
       width: 120px;
-      height: 120px;
+      height: 160px;
       object-fit: contain;
-      margin-top: 10px;
+      margin-bottom: 20px;
     }
 
-    .card h3 {
-      margin-top: 20px;
-      font-size: 12px;
-      color: #fff;
+    .device h2 {
+      font-size: 16px;
+      margin-bottom: 15px;
     }
 
-    .btn {
+    button {
       background-color: white;
       color: black;
       border: none;
-      padding: 10px 20px;
-      border-radius: 50px;
-      font-family: 'Press Start 2P', monospace;
-      font-size: 10px;
+      border-radius: 30px;
+      padding: 8px 26px;
+      font-weight: bold;
       cursor: pointer;
-      margin-top: 15px;
-      transition: background-color 0.3s ease, transform 0.2s ease;
+      font-family: inherit;
     }
 
-    .btn:hover {
-      background-color: #00ffcc;
-      transform: scale(1.1);
-    }
-
-    a {
-      text-decoration: none;
-      color: inherit;
+    button:hover {
+      background-color: #ccc;
     }
 
     .back {
-      text-align: left;
-      margin: 10px;
-      display: block;
-      font-size: 10px;
+      position: absolute;
+      top: 20px;
+      left: 30px;
+      color: white;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .back:hover {
+      text-decoration: underline;
     }
 
     @media (max-width: 768px) {
-      .card {
-        width: 180px;
-        padding: 1rem;
-      }
-
-      .card img {
+      .device img {
         width: 100px;
-        height: 100px;
+        height: 140px;
       }
     }
-
   </style>
 </head>
 <body>
 
   <a href="index.html" class="back">← Previous</a>
-  <h1>[ LEDGER ]</h1>
-  <h2>SELECT YOUR DEVICE</h2>
+  <h1>[ LEDGER ]<br>SELECT YOUR DEVICE</h1>
 
-  <div class="container">
-    <div class="card">
+  <div class="devices">
+    <div class="device">
       <img src="one1.png" alt="Ledger Stax">
-      <h3>Ledger Stax</h3>
-      <a href="stax.html"><button class="btn">Select</button></a>
+      <h2>Ledger Stax</h2>
+      <button>Select</button>
     </div>
 
-    <div class="card">
+    <div class="device">
       <img src="flex_3x.png" alt="Ledger Flex">
-      <h3>Ledger Flex</h3>
-      <a href="flex.html"><button class="btn">Select</button></a>
+      <h2>Ledger Flex</h2>
+      <button>Select</button>
     </div>
 
-    <div class="card">
-      <img src="three123.png" alt="Ledger Nano S Plus">
-      <h3>Ledger Nano S & Plus</h3>
-      <a href="nanoS.html"><button class="btn">Select</button></a>
+    <div class="device">
+      <img src="three123.png" alt="Ledger Nano S & Plus">
+      <h2>Ledger Nano S & Plus</h2>
+      <button>Select</button>
     </div>
 
-    <div class="card">
+    <div class="device">
       <img src="four123.png" alt="Ledger Nano X">
-      <h3>Ledger Nano X</h3>
-      <a href="nanoX.html"><button class="btn">Select</button></a>
+      <h2>Ledger Nano X</h2>
+      <button>Select</button>
     </div>
   </div>
 
