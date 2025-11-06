@@ -47,7 +47,15 @@
       height: 180px;
       object-fit: contain;
       margin-bottom: 20px;
-      filter: brightness(0.95) contrast(1.1);
+      background-color: #ffffff10;
+      padding: 10px;
+      border-radius: 15px;
+      filter: brightness(1.8) contrast(1.5) saturate(1.2);
+      transition: filter 0.3s ease;
+    }
+
+    .device img:hover {
+      filter: brightness(2) contrast(1.8) saturate(1.4);
     }
 
     button {
