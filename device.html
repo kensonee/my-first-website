@@ -50,12 +50,13 @@
       background-color: #ffffff10;
       padding: 10px;
       border-radius: 15px;
-      filter: brightness(1.8) contrast(1.5) saturate(1.2);
+      /* 👇 Dark PNG visibility fix */
+      filter: brightness(3) contrast(2) invert(1);
       transition: filter 0.3s ease;
     }
 
     .device img:hover {
-      filter: brightness(2) contrast(1.8) saturate(1.4);
+      filter: brightness(3.2) contrast(2.2) invert(1);
     }
 
     button {
