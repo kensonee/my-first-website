@@ -12,12 +12,12 @@
       --text: #f5f5ff;
       --muted: #bcbcdf;
     }
-    * { box-sizing: border-box; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
-      margin: 0;
       font-family: 'Inter', sans-serif;
       background: var(--bg);
       color: var(--text);
+      overflow-x: hidden;
     }
     .hero {
       display: flex;
@@ -26,12 +26,13 @@
     }
     .left {
       background: var(--panel);
-      flex: 1 1 360px;
+      flex: 1 1 35%;
       padding: 60px 40px;
       display: flex;
       flex-direction: column;
       justify-content: center;
       gap: 24px;
+      z-index: 2;
     }
     .logo {
       font-family: 'Roboto Mono', monospace;
@@ -41,7 +42,6 @@
     h1 {
       font-size: 2.6rem;
       line-height: 1.1;
-      margin: 0;
     }
     p {
       max-width: 360px;
@@ -60,32 +60,44 @@
     }
     .btn:hover { transform: scale(1.05); }
     .right {
-      flex: 2 1 500px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 40px;
+      flex: 1 1 65%;
+      position: relative;
       background: linear-gradient(135deg, #0a0a0e 0%, #1a1a25 80%);
+      overflow: hidden;
     }
     .visual {
-      width: 80%;
-      max-width: 700px;
-      border-radius: 24px;
-      overflow: hidden;
-      transform: rotate(-10deg);
-      box-shadow: 0 20px 60px rgba(0,0,0,0.6);
-    }
-    video {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) rotate(-10deg);
       width: 100%;
       height: 100%;
+      max-width: none;
+    }
+    video {
+      width: 120%;
+      height: 120%;
       object-fit: cover;
       display: block;
     }
-    @media (max-width: 768px) {
+    @media (max-width: 900px) {
       .hero { flex-direction: column; }
-      .left { align-items: center; text-align: center; }
-      h1 { font-size: 2rem; }
-      .visual { transform: none; width: 95%; }
+      .left {
+        width: 100%;
+        align-items: center;
+        text-align: center;
+      }
+      .right {
+        width: 100%;
+        height: 60vh;
+      }
+      .visual {
+        transform: translate(-50%, -50%) rotate(0deg);
+      }
+      video {
+        width: 100%;
+        height: 100%;
+      }
     }
   </style>
 </head>
@@ -100,7 +112,6 @@
     </div>
     <div class="right">
       <div class="visual">
-        <!-- ⚠️ Replace this name if needed -->
         <video src="intro6.mp4" autoplay loop muted playsinline></video>
       </div>
     </div>
