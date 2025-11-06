@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Select Your Device - Ledger Style</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      background: #0f0f11;
+      font-family: 'Inter', sans-serif;
+      color: white;
+      text-align: center;
+      overflow-x: hidden;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      color: #bcbcdf;
+      font-size: 14px;
+    }
+    .logo {
+      font-weight: bold;
+      letter-spacing: 2px;
+    }
+    .grid {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 60px;
+      flex-wrap: wrap;
+      margin-top: 80px;
+    }
+    .card {
+      background: #141417;
+      border-radius: 20px;
+      padding: 40px 30px;
+      width: 220px;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 0 20px rgba(255,255,255,0.1);
+    }
+    .card img {
+      width: 120px;
+      height: auto;
+      margin-bottom: 20px;
+    }
+    h2 {
+      font-size: 1.1rem;
+      margin-bottom: 12px;
+    }
+    .btn {
+      display: inline-block;
+      background: white;
+      color: black;
+      padding: 10px 26px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+    .btn:hover {
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <a href="index.html" style="color:#bcbcdf;text-decoration:none;">← Previous</a>
+    <div class="logo">LEDGER</div>
+  </header>
+
+  <h1 style="margin-top: 20px; letter-spacing: 2px;">SELECT YOUR DEVICE</h1>
+
+  <div class="grid">
+    <div class="card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/a/a2/Ledger_Stax.png" alt="Ledger Stax">
+      <h2>Ledger Stax</h2>
+      <a href="#" class="btn">Select</a>
+    </div>
+
+    <div class="card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Ledger_Flex.png" alt="Ledger Flex">
+      <h2>Ledger Flex</h2>
+      <a href="#" class="btn">Select</a>
+    </div>
+
+    <div class="card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/b/b9/Ledger_Nano_S_Plus.png" alt="Ledger Nano S Plus">
+      <h2>Ledger Nano S & Plus</h2>
+      <a href="#" class="btn">Select</a>
+    </div>
+
+    <div class="card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/9/98/Ledger_Nano_X.png" alt="Ledger Nano X">
+      <h2>Ledger Nano X</h2>
+      <a href="#" class="btn">Select</a>
+    </div>
+  </div>
+</body>
+</html>
