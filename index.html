@@ -1,145 +1,150 @@
 <!DOCTYPE html>
 <html lang="hi">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Modern Website</title>
-  <style>
-    /* Basic Reset */
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ledger /Phrase Demo</title>
+<style>
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin:0; padding:0;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color:#fff;
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:flex-start;
+  }
 
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      line-height: 1.6;
-      background: #f0f4f8;
-      color: #333;
-    }
+  h1 {
+    margin-top:50px;
+    font-size:2.5rem;
+    text-align:center;
+  }
 
-    /* Navbar */
-    nav {
-      background: #0070f3;
-      padding: 15px 30px;
-      color: white;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    nav a {
-      color: white;
-      text-decoration: none;
-      margin-left: 20px;
-      font-weight: bold;
-    }
-    nav a:hover { opacity: 0.8; }
+  .devices {
+    display:flex;
+    gap:20px;
+    margin:40px 0 20px 0;
+    flex-wrap:wrap;
+    justify-content:center;
+  }
 
-    /* Hero Section */
-    .hero {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 80vh;
-      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
-      text-align: center;
-      color: #fff;
-      padding: 0 20px;
-    }
-    .hero h1 {
-      font-size: 3rem;
-      margin-bottom: 20px;
-    }
-    .hero p {
-      font-size: 1.2rem;
-      margin-bottom: 30px;
-    }
-    .hero button {
-      padding: 12px 30px;
-      font-size: 1rem;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      background: white;
-      color: #ff5f7d;
-      font-weight: bold;
-      transition: 0.3s;
-    }
-    .hero button:hover {
-      background: #ffe0e6;
-    }
+  .device-btn {
+    padding:15px 25px;
+    background:white;
+    color:#764ba2;
+    font-weight:bold;
+    border:none;
+    border-radius:10px;
+    cursor:pointer;
+    transition:0.3s;
+    box-shadow:0 5px 15px rgba(0,0,0,0.2);
+  }
 
-    /* Features Section */
-    .features {
-      display: flex;
-      justify-content: space-around;
-      flex-wrap: wrap;
-      padding: 50px 20px;
-      background: #fff;
-    }
-    .feature-card {
-      background: #f5f5f5;
-      border-radius: 10px;
-      padding: 20px;
-      margin: 15px;
-      width: 250px;
-      text-align: center;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-      transition: 0.3s;
-    }
-    .feature-card:hover { transform: translateY(-5px); }
-    .feature-card h3 { margin-bottom: 10px; color: #0070f3; }
+  .device-btn:hover {
+    transform: translateY(-3px);
+    background:#f0f0f0;
+  }
 
-    /* Footer */
-    footer {
-      text-align: center;
-      padding: 20px;
-      background: #0070f3;
-      color: white;
-    }
+  #seedBox {
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:10px;
+    margin:20px 0;
+    max-width:600px;
+  }
 
-    /* Responsive */
-    @media(max-width:768px){
-      .features { flex-direction: column; align-items: center; }
-    }
-  </style>
+  .seed-btn {
+    width:50px;
+    height:50px;
+    border-radius:8px;
+    border:none;
+    background:#fff;
+    color:#764ba2;
+    font-weight:bold;
+    cursor:pointer;
+    transition:0.3s;
+    box-shadow:0 3px 8px rgba(0,0,0,0.2);
+  }
+
+  .seed-btn:hover {
+    transform:translateY(-2px);
+    background:#e0e0e0;
+  }
+
+  .info-box {
+    display:none;
+    background:rgba(255,255,255,0.9);
+    color:#333;
+    padding:25px;
+    border-radius:12px;
+    box-shadow:0 8px 20px rgba(0,0,0,0.3);
+    max-width:500px;
+    text-align:center;
+    margin-bottom:50px;
+  }
+
+  footer {
+    margin-top:auto;
+    padding:15px;
+    text-align:center;
+    font-weight:bold;
+    color:white;
+    background:rgba(0,0,0,0.2);
+    width:100%;
+  }
+
+  @media(max-width:768px){
+    .devices { flex-direction:column; }
+    .seed-btn { width:40px; height:40px; }
+  }
+</style>
 </head>
 <body>
 
-  <!-- Navbar -->
-  <nav>
-    <div class="logo">MyWebsite</div>
-    <div class="menu">
-      <a href="#features">Features</a>
-      <a href="#contact">Contact</a>
-    </div>
-  </nav>
+<h1>Ledger Demo: /phrase Page</h1>
 
-  <!-- Hero Section -->
-  <section class="hero">
-    <h1>👋 नमस्ते! यह मेरी Modern Website है</h1>
-    <p>GitHub और Render की मदद से बनाई गई, बिलकुल Vercel जैसी look</p>
-    <button onclick="alert('धन्यवाद! आप मेरी Modern Website पर आए 😊')">Click Me</button>
-  </section>
+<!-- Devices -->
+<div class="devices">
+  <button class="device-btn" onclick="showPhrase('Ledger Nano S & Plus')">Nano S & Plus</button>
+  <button class="device-btn" onclick="showPhrase('Ledger Nano X')">Nano X</button>
+  <button class="device-btn" onclick="showPhrase('Ledger Flex')">Ledger Flex</button>
+</div>
 
-  <!-- Features Section -->
-  <section class="features" id="features">
-    <div class="feature-card">
-      <h3>Fast</h3>
-      <p>Website बहुत जल्दी load होती है।</p>
-    </div>
-    <div class="feature-card">
-      <h3>Responsive</h3>
-      <p>Mobile और Desktop दोनों पर perfect दिखती है।</p>
-    </div>
-    <div class="feature-card">
-      <h3>Modern</h3>
-      <p>Clean और professional design।</p>
-    </div>
-  </section>
+<!-- Seed Numbers -->
+<div id="seedBox"></div>
 
-  <!-- Footer -->
-  <footer id="contact">
-    © 2025 My Modern Website
-  </footer>
+<!-- Info Box -->
+<div class="info-box" id="infoBox">
+  <p id="deviceSelected"></p>
+  <p>Safe demo content. कोई sensitive information नहीं।</p>
+</div>
+
+<footer>© 2025 Ledger-like Demo Site (Safe Version)</footer>
+
+<script>
+function showPhrase(device){
+  document.getElementById('deviceSelected').innerText = "You selected: " + device;
+  document.getElementById('infoBox').style.display = 'block';
+
+  const seedBox = document.getElementById('seedBox');
+  seedBox.innerHTML = ''; // Clear previous buttons
+
+  for(let i=1;i<=24;i++){
+    const btn = document.createElement('button');
+    btn.className = 'seed-btn';
+    btn.innerText = i;
+    btn.onclick = () => alert("This is a safe demo, not a real seed phrase!");
+    seedBox.appendChild(btn);
+  }
+
+  // Scroll to seed box smoothly
+  seedBox.scrollIntoView({ behavior: 'smooth' });
+}
+</script>
 
 </body>
 </html>
