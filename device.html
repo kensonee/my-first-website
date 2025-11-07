@@ -26,49 +26,55 @@
       flex-direction: column;
       align-items: center;
       min-height: 100vh;
-      padding: 40px 20px;
+      padding: 60px 20px;
     }
 
-    header {
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 0 40px;
-      margin-bottom: 20px; /* Reduced space above logo */
-      font-size: 14px;
-      color: #b3b3b3;
-    }
-
-    .back {
-      text-decoration: none;
-      color: #b3b3b3;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      font-weight: 400;
-    }
-
-    .back:hover {
-      color: #ffffff;
+    .logo-container {
+      position: relative;
+      display: inline-block;
+      text-align: center;
+      margin-bottom: 40px; /* Distance between LEDGER and SELECT YOUR DEVICE */
     }
 
     .logo {
       font-weight: 700;
-      font-size: 24px;
-      letter-spacing: 3px;
-      text-align: center;
-      flex-grow: 1;
-      color: #b3b3b3;
-      margin-top: 40px; /* Controls vertical distance */
-      margin-bottom: 10px; /* Closer to "Select Your Device" */
+      font-size: 22px;
+      letter-spacing: 4px;
+      color: #ffffff;
+      padding: 20px 60px;
+      position: relative;
+      display: inline-block;
+    }
+
+    /* Corner style brackets */
+    .logo::before,
+    .logo::after {
+      content: "";
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      border: 2px solid #ffffff;
+    }
+
+    .logo::before {
+      top: 0;
+      left: 0;
+      border-right: none;
+      border-bottom: none;
+    }
+
+    .logo::after {
+      bottom: 0;
+      right: 0;
+      border-left: none;
+      border-top: none;
     }
 
     .title {
       text-align: center;
-      font-size: 26px;
+      font-size: 28px;
       font-weight: 700;
-      letter-spacing: 3px;
+      letter-spacing: 4px;
       margin-bottom: 80px;
     }
 
@@ -130,11 +136,9 @@
 </head>
 <body>
 
-  <header>
-    <a href="index.html" class="back">← Previous</a>
-    <div class="logo">[ LEDGER ]</div>
-    <div></div>
-  </header>
+  <div class="logo-container">
+    <div class="logo">LEDGER</div>
+  </div>
 
   <h1 class="title">SELECT YOUR DEVICE</h1>
 
