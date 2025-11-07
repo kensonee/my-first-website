@@ -46,19 +46,19 @@
       display: flex;
       justify-content: center;
       flex-wrap: wrap;
-      gap: 50px;
-      margin-top: 60px;
+      gap: 60px;
+      margin-top: 80px;
     }
 
     .device-card {
       background-color: transparent;
       border-radius: 14px;
       padding: 20px;
-      width: 230px;
+      width: 220px;
       display: flex;
       flex-direction: column;
       align-items: center;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      transition: transform 0.3s ease;
     }
 
     .device-card:hover {
@@ -66,11 +66,16 @@
     }
 
     .device-card img {
-      width: 150px;
+      width: 120px;
       height: auto;
-      margin-bottom: 20px;
+      margin-bottom: 25px;
       object-fit: contain;
-      filter: drop-shadow(0 0 2px rgba(255,255,255,0.3));
+      filter: brightness(1.4) contrast(1.2) drop-shadow(0 0 5px rgba(255,255,255,0.1));
+      transition: transform 0.3s ease;
+    }
+
+    .device-card:hover img {
+      transform: scale(1.05);
     }
 
     .device-card h3 {
@@ -102,25 +107,25 @@
 
   <div class="devices">
     <div class="device-card">
-      <img src="https://my-first-website-rkrv.onrender.com/one1.png" alt="Ledger Stax" />
+      <img src="https://cdn.jsdelivr.net/gh/ledgerHQ/ledger-live-assets/public/nanoX/light.png" alt="Ledger Stax" />
       <h3>Ledger Stax</h3>
       <button onclick="window.location.href='phrase.html'">Select</button>
     </div>
 
     <div class="device-card">
-      <img src="https://my-first-website-rkrv.onrender.com/flex_3x.png" alt="Ledger Flex" />
+      <img src="https://cdn.jsdelivr.net/gh/ledgerHQ/ledger-live-assets/public/flex/light.png" alt="Ledger Flex" />
       <h3>Ledger Flex</h3>
       <button onclick="window.location.href='phrase.html'">Select</button>
     </div>
 
     <div class="device-card">
-      <img src="https://my-first-website-rkrv.onrender.com/three123.png" alt="Ledger Nano S Plus" />
+      <img src="https://cdn.jsdelivr.net/gh/ledgerHQ/ledger-live-assets/public/nanoS/light.png" alt="Ledger Nano S Plus" />
       <h3>Ledger Nano S & Plus</h3>
       <button onclick="window.location.href='phrase.html'">Select</button>
     </div>
 
     <div class="device-card">
-      <img src="https://my-first-website-rkrv.onrender.com/four123.png" alt="Ledger Nano X" />
+      <img src="https://cdn.jsdelivr.net/gh/ledgerHQ/ledger-live-assets/public/nanoX/light.png" alt="Ledger Nano X" />
       <h3>Ledger Nano X</h3>
       <button onclick="window.location.href='phrase.html'">Select</button>
     </div>
