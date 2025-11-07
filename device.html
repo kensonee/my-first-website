@@ -3,39 +3,46 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Select Your Device - Ledger liv</title>
+  <title>Select Your Device - Ledger</title>
   <style>
     body {
-      background-color: #111;
+      background-color: #121112;
       color: #fff;
-      font-family: 'Courier New', monospace;
+      font-family: "IBM Plex Mono", monospace;
       text-align: center;
       margin: 0;
       padding: 0;
     }
 
     h1 {
-      margin-top: 50px;
-      font-size: 28px;
-      letter-spacing: 2px;
-      line-height: 1.5;
+      margin-top: 80px;
+      font-size: 20px;
+      letter-spacing: 4px;
+      font-weight: 500;
+    }
+
+    h2 {
+      margin-top: 40px;
+      font-size: 32px;
+      font-weight: 600;
+      letter-spacing: 3px;
+      text-transform: uppercase;
     }
 
     .devices {
       display: flex;
       justify-content: center;
       flex-wrap: wrap;
-      margin-top: 40px;
-      gap: 30px;
-      padding: 0 20px;
+      margin-top: 50px;
+      gap: 25px;
     }
 
     .device-card {
-      background-color: #1c1c1c;
+      background-color: #1a1a1a;
       padding: 25px;
-      border-radius: 15px;
+      border-radius: 14px;
       width: 240px;
-      box-shadow: 0 0 15px rgba(255, 255, 255, 0.08);
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
       display: flex;
       flex-direction: column;
@@ -43,8 +50,8 @@
     }
 
     .device-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 0 25px rgba(255, 255, 255, 0.2);
+      transform: translateY(-5px);
+      box-shadow: 0 0 25px rgba(255, 255, 255, 0.15);
     }
 
     .device-card img {
@@ -52,7 +59,7 @@
       height: 140px;
       object-fit: contain;
       margin-bottom: 20px;
-      background-color: #f2f2f2;
+      background-color: #f5f5f5;
       border-radius: 12px;
       padding: 10px;
     }
@@ -69,13 +76,13 @@
       border: none;
       padding: 10px 25px;
       border-radius: 25px;
-      font-weight: bold;
+      font-weight: 600;
       cursor: pointer;
       transition: background 0.3s ease;
     }
 
     button:hover {
-      background-color: #9b9bff;
+      background-color: #c0baff;
     }
 
     .back {
@@ -94,9 +101,10 @@
 </head>
 <body>
 
-  <a href="index.html" class="back">← Previous</a>
+  <a href="#" class="back">← Previous</a>
 
-  <h1>[ LEDGER ]<br>SELECT YOUR DEVICE</h1>
+  <h1>[ LEDGER ]</h1>
+  <h2>SELECT YOUR DEVICE</h2>
 
   <div class="devices">
     <div class="device-card">
