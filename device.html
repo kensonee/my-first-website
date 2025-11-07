@@ -5,7 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Select Your Device | Ledger</title>
 
+  <!-- Favicon -->
   <link rel="icon" type="image/png" href="favicon.png">
+
+  <!-- Font -->
   <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 
   <style>
@@ -23,118 +26,100 @@
       flex-direction: column;
       align-items: center;
       min-height: 100vh;
-      padding-top: 10px;
+      padding-top: 20px;
     }
 
-    /* LEDGER logo */
-    .logo-container {
-      text-align: center;
-      margin-bottom: 10px;
-    }
-
+    /* LEDGER LOGO */
     .logo {
       font-weight: 700;
       font-size: 14px;
       letter-spacing: 5px;
       color: #ffffff;
-      padding: 8px 25px;
-      position: relative;
-      display: inline-block;
       text-transform: uppercase;
+      border: 1.5px solid #ffffff;
+      padding: 6px 20px;
+      border-radius: 6px;
+      margin-bottom: 10px;
     }
 
-    .logo::before,
-    .logo::after {
-      content: "";
-      position: absolute;
-      width: 18px;
-      height: 18px;
-      border: 2px solid #ffffff;
-    }
-
-    .logo::before {
-      top: -3px;
-      left: -3px;
-      border-right: none;
-      border-bottom: none;
-    }
-
-    .logo::after {
-      bottom: -3px;
-      right: -3px;
-      border-left: none;
-      border-top: none;
-    }
-
-    /* Title */
+    /* TITLE */
     .title {
       text-align: center;
-      font-size: 22px;
+      font-size: 20px;
       font-weight: 700;
       letter-spacing: 4px;
-      margin-top: 10px;
-      margin-bottom: 70px;
+      margin-bottom: 60px;
+      color: #e0e0e0;
     }
 
-    /* Devices grid */
+    /* DEVICES GRID */
     .devices {
-      display: flex;
-      justify-content: center;
-      align-items: flex-start;
-      flex-wrap: wrap;
-      gap: 80px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      justify-items: center;
+      align-items: start;
+      gap: 60px;
+      width: 90%;
+      max-width: 1100px;
     }
 
+    /* DEVICE CARD */
     .device {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+      background-color: #151515;
+      padding: 25px;
+      border-radius: 16px;
       text-align: center;
+      transition: all 0.3s ease;
+      width: 100%;
       max-width: 260px;
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.05);
+    }
+
+    .device:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 25px rgba(255, 255, 255, 0.1);
     }
 
     .device img {
-      width: 300px; /* image size बढ़ाई */
+      width: 280px; /* बड़ा लेकिन controlled size */
       height: auto;
-      margin-bottom: 25px;
       border-radius: 10px;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      margin-bottom: 20px;
+      transition: transform 0.3s ease;
     }
 
-    .device img:hover {
-      transform: scale(1.08);
-      box-shadow: 0 0 25px rgba(255, 255, 255, 0.15);
+    .device:hover img {
+      transform: scale(1.04);
     }
 
     .device h3 {
       font-size: 18px;
-      margin-bottom: 20px;
+      color: #ffffff;
+      margin-bottom: 18px;
+      letter-spacing: 1px;
     }
 
-    /* Button */
     .select-btn {
       background-color: #ffffff;
       color: #000000;
       border: none;
-      border-radius: 30px;
-      padding: 12px 40px;
-      font-family: 'Space Mono', monospace;
+      border-radius: 25px;
+      padding: 10px 28px;
       font-weight: 700;
       cursor: pointer;
       transition: all 0.3s ease;
-      box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+      font-family: 'Space Mono', monospace;
     }
 
     .select-btn:hover {
       background-color: #b3b3b3;
       transform: translateY(-2px);
-      box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
     }
 
     @media (max-width: 900px) {
       .devices {
-        flex-direction: column;
-        gap: 60px;
+        grid-template-columns: 1fr;
+        gap: 50px;
       }
 
       .device img {
@@ -145,34 +130,31 @@
 </head>
 <body>
 
-  <div class="logo-container">
-    <div class="logo">LEDGER</div>
-  </div>
-
+  <div class="logo">LEDGER</div>
   <h1 class="title">SELECT YOUR DEVICE</h1>
 
   <section class="devices">
 
     <div class="device">
-      <img src="Screenshot 2025-11-08 at 01-57-28 Ledger Live.png" alt="Device 1">
+      <img src="Screenshot 2025-11-08 at 01-57-28 Ledger Live.png" alt="Ledger Stax">
       <h3>Ledger Stax</h3>
       <a href="phrase.html"><button class="select-btn">Select</button></a>
     </div>
 
     <div class="device">
-      <img src="Screenshot 2025-11-08 at 01-57-56 Ledger Live.png" alt="Device 2">
+      <img src="Screenshot 2025-11-08 at 01-57-56 Ledger Live.png" alt="Ledger Flex">
       <h3>Ledger Flex</h3>
       <a href="phrase.html"><button class="select-btn">Select</button></a>
     </div>
 
     <div class="device">
-      <img src="Screenshot 2025-11-08 at 01-58-33 Ledger Live.png" alt="Device 3">
+      <img src="Screenshot 2025-11-08 at 01-58-33 Ledger Live.png" alt="Ledger Nano S & Plus">
       <h3>Ledger Nano S & Plus</h3>
       <a href="phrase.html"><button class="select-btn">Select</button></a>
     </div>
 
     <div class="device">
-      <img src="Screenshot 2025-11-08 at 01-59-01 Ledger Live.png" alt="Device 4">
+      <img src="Screenshot 2025-11-08 at 01-59-01 Ledger Live.png" alt="Ledger Nano X">
       <h3>Ledger Nano X</h3>
       <a href="phrase.html"><button class="select-btn">Select</button></a>
     </div>
