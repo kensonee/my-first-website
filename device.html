@@ -3,165 +3,155 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ledger | Select Your Device</title>
+  <title>Select Your Device | Ledger</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
   <style>
-    body {
-      background-color: #0f0e0e;
-      color: #ffffff;
-      font-family: "Courier New", monospace;
-      text-align: center;
+    * {
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
     }
 
-    /* ==== LEDGER TITLE ==== */
+    body {
+      background-color: #0e0d0e;
+      color: #ffffff;
+      font-family: 'Space Mono', monospace;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      padding: 40px 20px;
+    }
+
+    header {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 40px;
+      margin-bottom: 60px;
+      font-size: 14px;
+      color: #b3b3b3;
+    }
+
+    .back {
+      text-decoration: none;
+      color: #b3b3b3;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-weight: 400;
+    }
+
+    .back:hover {
+      color: #ffffff;
+    }
+
     .logo {
-      font-size: 26px;
-      font-weight: 500;
-      letter-spacing: 4px;
-      text-transform: uppercase;
-      display: inline-block;
-      position: relative;
-      margin-top: 80px;
-      margin-bottom: 70px;
+      font-weight: 700;
+      font-size: 18px;
+      letter-spacing: 2px;
     }
 
-    /* ==== corner lines like [   ] ==== */
-    .logo::before,
-    .logo::after {
-      content: "";
-      position: absolute;
-      width: 20px;
-      height: 20px;
-      border-color: #ffffff;
-      border-style: solid;
+    .title {
+      text-align: center;
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      margin-bottom: 60px;
     }
 
-    .logo::before {
-      top: -10px;
-      left: -25px;
-      border-width: 3px 0 0 3px;
-    }
-
-    .logo::after {
-      bottom: -10px;
-      right: -25px;
-      border-width: 0 3px 3px 0;
-    }
-
-    /* ==== PAGE TITLE ==== */
-    h2 {
-      font-size: 28px;
-      font-weight: bold;
-      letter-spacing: 6px;
-      text-transform: uppercase;
-      margin-bottom: 80px;
-    }
-
-    /* ==== DEVICE GRID ==== */
-    .container {
+    .devices {
       display: flex;
       justify-content: center;
       align-items: flex-start;
       flex-wrap: wrap;
-      gap: 120px;
-      padding-bottom: 80px;
+      gap: 80px;
     }
 
     .device {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
       text-align: center;
-      transition: transform 0.3s ease;
+      max-width: 220px;
     }
 
     .device img {
-      width: 180px;
+      width: 120px;
       height: auto;
-      margin-bottom: 25px;
-      transition: transform 0.3s ease;
+      margin-bottom: 20px;
+      border-radius: 10px;
     }
 
-    .device:hover img {
-      transform: scale(1.08);
-    }
-
-    /* ==== DEVICE NAME ==== */
     .device h3 {
-      font-size: 18px;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 3px;
+      font-size: 20px;
       margin-bottom: 20px;
     }
 
-    /* ==== BUTTON ==== */
-    button {
-      background: white;
-      color: black;
+    .select-btn {
+      background-color: #ffffff;
+      color: #000000;
       border: none;
-      padding: 10px 25px;
       border-radius: 25px;
-      font-weight: bold;
-      letter-spacing: 2px;
-      text-transform: uppercase;
+      padding: 10px 30px;
+      font-family: 'Space Mono', monospace;
       cursor: pointer;
-      transition: background 0.2s ease, transform 0.2s ease;
+      transition: all 0.3s ease;
     }
 
-    button:hover {
-      background: #dcdcdc;
-      transform: scale(1.05);
+    .select-btn:hover {
+      background-color: #b3b3b3;
     }
 
     @media (max-width: 900px) {
-      .container {
-        gap: 80px;
-      }
-      .device img {
-        width: 150px;
-      }
-    }
-
-    @media (max-width: 600px) {
-      .container {
+      .devices {
         flex-direction: column;
         gap: 50px;
-      }
-      .device img {
-        width: 130px;
       }
     }
   </style>
 </head>
 <body>
 
-  <div class="logo">LEDGER</div>
-  <h2>SELECT YOUR DEVICE</h2>
+  <header>
+    <a href="index.html" class="back">← Previous</a>
+    <div class="logo">[ LEDGER ]</div>
+    <div></div>
+  </header>
 
-  <div class="container">
+  <h1 class="title">SELECT YOUR DEVICE</h1>
+
+  <section class="devices">
+
     <div class="device">
-      <img src="stax.png" alt="Ledger Stax">
-      <h3>LEDGER STAX</h3>
-      <button>Select</button>
+      <img src="Screenshot 2025-11-08 at 01-57-28 Ledger Live.png" alt="Device 1">
+      <h3>Ledger Stax</h3>
+      <button class="select-btn">Select</button>
     </div>
 
     <div class="device">
-      <img src="flex.png" alt="Ledger Flex">
-      <h3>LEDGER FLEX</h3>
-      <button>Select</button>
+      <img src="Screenshot 2025-11-08 at 01-57-56 Ledger Live.png" alt="Device 2">
+      <h3>Ledger Flex</h3>
+      <button class="select-btn">Select</button>
     </div>
 
     <div class="device">
-      <img src="nano-s.png" alt="Ledger Nano S Plus">
-      <h3>LEDGER NANO S PLUS</h3>
-      <button>Select</button>
+      <img src="Screenshot 2025-11-08 at 01-58-33 Ledger Live.png" alt="Device 3">
+      <h3>Ledger Nano S & Plus</h3>
+      <button class="select-btn">Select</button>
     </div>
 
     <div class="device">
-      <img src="nano-x.png" alt="Ledger Nano X">
-      <h3>LEDGER NANO X</h3>
-      <button>Select</button>
+      <img src="Screenshot 2025-11-08 at 01-59-01 Ledger Live.png" alt="Device 4">
+      <h3>Ledger Nano X</h3>
+      <button class="select-btn">Select</button>
     </div>
-  </div>
+
+  </section>
 
 </body>
 </html>
