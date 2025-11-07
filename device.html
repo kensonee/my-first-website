@@ -24,7 +24,7 @@
       flex-direction: column;
       align-items: center;
       min-height: 100vh;
-      padding: 60px 20px;
+      padding: 50px 20px;
     }
 
     /* Logo container */
@@ -32,56 +32,55 @@
       position: relative;
       display: inline-block;
       text-align: center;
-      margin-bottom: 40px;
+      margin-bottom: 25px; /* पहले 40px था */
     }
 
     .logo {
       font-weight: 700;
-      font-size: 18px;
-      letter-spacing: 6px;
+      font-size: 14px; /* पहले 18px था */
+      letter-spacing: 5px;
       color: #ffffff;
-      padding: 18px 45px;
+      padding: 14px 35px;
       position: relative;
       display: inline-block;
       text-transform: uppercase;
     }
 
-    /* Sleek corner brackets */
+    /* Corner design */
     .logo::before,
     .logo::after {
       content: "";
       position: absolute;
-      width: 22px;
-      height: 22px;
+      width: 18px;
+      height: 18px;
       border: 2px solid #ffffff;
     }
 
     .logo::before {
-      top: -4px;
-      left: -4px;
+      top: -3px;
+      left: -3px;
       border-right: none;
       border-bottom: none;
     }
 
     .logo::after {
-      bottom: -4px;
-      right: -4px;
+      bottom: -3px;
+      right: -3px;
       border-left: none;
       border-top: none;
     }
 
-    /* Glow effect subtle */
     .logo:hover {
       text-shadow: 0 0 8px #ffffff80;
     }
 
-    /* Title text */
+    /* Title */
     .title {
       text-align: center;
-      font-size: 24px;
+      font-size: 22px;
       font-weight: 700;
-      letter-spacing: 6px;
-      margin-bottom: 80px;
+      letter-spacing: 5px;
+      margin-bottom: 60px; /* पहले 80px था */
     }
 
     /* Devices grid */
