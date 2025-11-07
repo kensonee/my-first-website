@@ -6,9 +6,11 @@
   <title>Ledger Style Crypto Wallet</title>
 
   <!-- ✅ Favicon -->
-  <link rel="icon" type="image/png" href="https://my-first-website-rkrv.onrender.com/favicon.png">
+  <link rel="icon" type="image/png" href="https://my-first-website-rkrv.onrender.com/favicon.png" />
 
+  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Roboto+Mono:wght@600&display=swap" rel="stylesheet">
+
   <style>
     :root {
       --bg: #0e0e10;
@@ -43,37 +45,65 @@
       color: var(--muted);
       letter-spacing: 2px;
     }
-    h1 { font-size: 2.6rem; line-height: 1.1; }
-    p { max-width: 360px; color: var(--muted); }
+    h1 {
+      font-size: 2.6rem;
+      line-height: 1.1;
+    }
+    p {
+      max-width: 360px;
+      color: var(--muted);
+    }
     .btn {
-      background: white; color: black;
-      padding: 12px 28px; border-radius: 9999px;
-      font-weight: 600; text-decoration: none;
+      background: white;
+      color: black;
+      padding: 12px 28px;
+      border-radius: 9999px;
+      font-weight: 600;
+      text-decoration: none;
       display: inline-block;
       box-shadow: 0 6px 16px rgba(0,0,0,0.3);
       transition: transform 0.2s;
     }
     .btn:hover { transform: scale(1.05); }
     .right {
-      flex: 1 1 65%; position: relative;
+      flex: 1 1 65%;
+      position: relative;
       background: linear-gradient(135deg, #0a0a0e 0%, #1a1a25 80%);
       overflow: hidden;
     }
     .visual {
-      position: absolute; top: 50%; left: 50%;
+      position: absolute;
+      top: 50%;
+      left: 50%;
       transform: translate(-50%, -50%) rotate(-10deg);
-      width: 100%; height: 100%; max-width: none;
+      width: 100%;
+      height: 100%;
+      max-width: none;
     }
     video {
-      width: 120%; height: 120%;
-      object-fit: cover; display: block;
+      width: 120%;
+      height: 120%;
+      object-fit: cover;
+      display: block;
     }
     @media (max-width: 900px) {
       .hero { flex-direction: column; }
-      .left { width: 100%; align-items: center; text-align: center; }
-      .right { width: 100%; height: 60vh; }
-      .visual { transform: translate(-50%, -50%) rotate(0deg); }
-      video { width: 100%; height: 100%; }
+      .left {
+        width: 100%;
+        align-items: center;
+        text-align: center;
+      }
+      .right {
+        width: 100%;
+        height: 60vh;
+      }
+      .visual {
+        transform: translate(-50%, -50%) rotate(0deg);
+      }
+      video {
+        width: 100%;
+        height: 100%;
+      }
     }
   </style>
 </head>
