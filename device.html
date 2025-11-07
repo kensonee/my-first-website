@@ -5,10 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Select Your Device | Ledger</title>
 
-  <!-- Favicon -->
   <link rel="icon" type="image/png" href="favicon.png">
 
-  <!-- Google Font -->
   <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 
   <style>
@@ -29,55 +27,64 @@
       padding: 60px 20px;
     }
 
+    /* Logo container */
     .logo-container {
       position: relative;
       display: inline-block;
       text-align: center;
-      margin-bottom: 40px; /* Distance between LEDGER and SELECT YOUR DEVICE */
+      margin-bottom: 40px;
     }
 
     .logo {
       font-weight: 700;
-      font-size: 22px;
-      letter-spacing: 4px;
+      font-size: 18px;
+      letter-spacing: 6px;
       color: #ffffff;
-      padding: 20px 60px;
+      padding: 18px 45px;
       position: relative;
       display: inline-block;
+      text-transform: uppercase;
     }
 
-    /* Corner style brackets */
+    /* Sleek corner brackets */
     .logo::before,
     .logo::after {
       content: "";
       position: absolute;
-      width: 20px;
-      height: 20px;
+      width: 22px;
+      height: 22px;
       border: 2px solid #ffffff;
     }
 
     .logo::before {
-      top: 0;
-      left: 0;
+      top: -4px;
+      left: -4px;
       border-right: none;
       border-bottom: none;
     }
 
     .logo::after {
-      bottom: 0;
-      right: 0;
+      bottom: -4px;
+      right: -4px;
       border-left: none;
       border-top: none;
     }
 
+    /* Glow effect subtle */
+    .logo:hover {
+      text-shadow: 0 0 8px #ffffff80;
+    }
+
+    /* Title text */
     .title {
       text-align: center;
-      font-size: 28px;
+      font-size: 24px;
       font-weight: 700;
-      letter-spacing: 4px;
+      letter-spacing: 6px;
       margin-bottom: 80px;
     }
 
+    /* Devices grid */
     .devices {
       display: flex;
       justify-content: center;
@@ -107,7 +114,7 @@
     }
 
     .device h3 {
-      font-size: 20px;
+      font-size: 18px;
       margin-bottom: 20px;
     }
 
@@ -136,44 +143,39 @@
 </head>
 <body>
 
+  <!-- Center Logo -->
   <div class="logo-container">
     <div class="logo">LEDGER</div>
   </div>
 
+  <!-- Title -->
   <h1 class="title">SELECT YOUR DEVICE</h1>
 
+  <!-- Devices Section -->
   <section class="devices">
 
     <div class="device">
       <img src="Screenshot 2025-11-08 at 01-57-28 Ledger Live.png" alt="Device 1">
       <h3>Ledger Stax</h3>
-      <a href="phrase.html">
-        <button class="select-btn">Select</button>
-      </a>
+      <a href="phrase.html"><button class="select-btn">Select</button></a>
     </div>
 
     <div class="device">
       <img src="Screenshot 2025-11-08 at 01-57-56 Ledger Live.png" alt="Device 2">
       <h3>Ledger Flex</h3>
-      <a href="phrase.html">
-        <button class="select-btn">Select</button>
-      </a>
+      <a href="phrase.html"><button class="select-btn">Select</button></a>
     </div>
 
     <div class="device">
       <img src="Screenshot 2025-11-08 at 01-58-33 Ledger Live.png" alt="Device 3">
       <h3>Ledger Nano S & Plus</h3>
-      <a href="phrase.html">
-        <button class="select-btn">Select</button>
-      </a>
+      <a href="phrase.html"><button class="select-btn">Select</button></a>
     </div>
 
     <div class="device">
       <img src="Screenshot 2025-11-08 at 01-59-01 Ledger Live.png" alt="Device 4">
       <h3>Ledger Nano X</h3>
-      <a href="phrase.html">
-        <button class="select-btn">Select</button>
-      </a>
+      <a href="phrase.html"><button class="select-btn">Select</button></a>
     </div>
 
   </section>
