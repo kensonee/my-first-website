@@ -4,9 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Ledger | Select Your Device</title>
-  <link rel="icon" type="image/png" href="favicon.png" />
   <style>
-    /* ==== GLOBAL STYLES ==== */
     body {
       background-color: #0f0e0e;
       color: #ffffff;
@@ -16,30 +14,47 @@
       padding: 0;
     }
 
-    a {
-      color: #ffffff;
-      text-decoration: none;
-    }
-
-    /* ==== HEADER ==== */
-    .header {
-      display: flex;
-      justify-content: center; /* centers [ LEDGER ] */
-      align-items: center;
-      padding-top: 40px;
-      margin-bottom: 80px;
-    }
-
+    /* ==== LEDGER TITLE ==== */
     .logo {
-      font-size: 22px;
+      font-size: 26px;
+      font-weight: 500;
       letter-spacing: 4px;
-      font-weight: bold;
+      text-transform: uppercase;
+      display: inline-block;
+      position: relative;
+      margin-top: 80px;
+      margin-bottom: 70px;
     }
 
-    /* ==== TITLE ==== */
+    /* ==== corner lines like [   ] ==== */
+    .logo::before,
+    .logo::after {
+      content: "";
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      border-color: #ffffff;
+      border-style: solid;
+    }
+
+    .logo::before {
+      top: -10px;
+      left: -25px;
+      border-width: 3px 0 0 3px;
+    }
+
+    .logo::after {
+      bottom: -10px;
+      right: -25px;
+      border-width: 0 3px 3px 0;
+    }
+
+    /* ==== PAGE TITLE ==== */
     h2 {
       font-size: 28px;
-      letter-spacing: 4px;
+      font-weight: bold;
+      letter-spacing: 6px;
+      text-transform: uppercase;
       margin-bottom: 80px;
     }
 
@@ -69,11 +84,16 @@
       transform: scale(1.08);
     }
 
+    /* ==== DEVICE NAME ==== */
     .device h3 {
-      font-size: 20px;
-      margin-bottom: 15px;
+      font-size: 18px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      margin-bottom: 20px;
     }
 
+    /* ==== BUTTON ==== */
     button {
       background: white;
       color: black;
@@ -81,6 +101,8 @@
       padding: 10px 25px;
       border-radius: 25px;
       font-weight: bold;
+      letter-spacing: 2px;
+      text-transform: uppercase;
       cursor: pointer;
       transition: background 0.2s ease, transform 0.2s ease;
     }
@@ -90,7 +112,6 @@
       transform: scale(1.05);
     }
 
-    /* ==== RESPONSIVE ==== */
     @media (max-width: 900px) {
       .container {
         gap: 80px;
@@ -113,34 +134,31 @@
 </head>
 <body>
 
-  <div class="header">
-    <div class="logo">[ LEDGER ]</div>
-  </div>
-
+  <div class="logo">LEDGER</div>
   <h2>SELECT YOUR DEVICE</h2>
 
   <div class="container">
     <div class="device">
-      <img src="Screenshot%202025-11-08%20at%2001-57-28%20Ledger%20Live.png" alt="Ledger Stax">
-      <h3>Ledger Stax</h3>
+      <img src="stax.png" alt="Ledger Stax">
+      <h3>LEDGER STAX</h3>
       <button>Select</button>
     </div>
 
     <div class="device">
-      <img src="Screenshot%202025-11-08%20at%2001-57-56%20Ledger%20Live.png" alt="Ledger Flex">
-      <h3>Ledger Flex</h3>
+      <img src="flex.png" alt="Ledger Flex">
+      <h3>LEDGER FLEX</h3>
       <button>Select</button>
     </div>
 
     <div class="device">
-      <img src="Screenshot%202025-11-08%20at%2001-58-33%20Ledger%20Live.png" alt="Ledger Nano S Plus">
-      <h3>Ledger Nano S & Plus</h3>
+      <img src="nano-s.png" alt="Ledger Nano S Plus">
+      <h3>LEDGER NANO S PLUS</h3>
       <button>Select</button>
     </div>
 
     <div class="device">
-      <img src="Screenshot%202025-11-08%20at%2001-59-01%20Ledger%20Live.png" alt="Ledger Nano X">
-      <h3>Ledger Nano X</h3>
+      <img src="nano-x.png" alt="Ledger Nano X">
+      <h3>LEDGER NANO X</h3>
       <button>Select</button>
     </div>
   </div>
