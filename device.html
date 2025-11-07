@@ -6,7 +6,6 @@
   <title>Select Your Device | Ledger</title>
 
   <link rel="icon" type="image/png" href="favicon.png">
-
   <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 
   <style>
@@ -24,15 +23,13 @@
       flex-direction: column;
       align-items: center;
       min-height: 100vh;
-      padding-top: 20px; /* ऊपर से कम space */
+      padding-top: 20px;
     }
 
-    /* Logo container */
+    /* LEDGER logo */
     .logo-container {
-      position: relative;
-      display: inline-block;
       text-align: center;
-      margin-bottom: 10px;
+      margin-bottom: 20px;
     }
 
     .logo {
@@ -46,7 +43,6 @@
       text-transform: uppercase;
     }
 
-    /* Corner design */
     .logo::before,
     .logo::after {
       content: "";
@@ -70,18 +66,14 @@
       border-top: none;
     }
 
-    .logo:hover {
-      text-shadow: 0 0 8px #ffffff80;
-    }
-
     /* Title */
     .title {
       text-align: center;
-      font-size: 22px;
+      font-size: 24px;
       font-weight: 700;
-      letter-spacing: 5px;
-      margin-top: 5px;
-      margin-bottom: 70px; /* थोड़ा नीचे किया ताकि images को space मिले */
+      letter-spacing: 6px;
+      margin-top: 40px;
+      margin-bottom: 90px;
     }
 
     /* Devices grid */
@@ -91,7 +83,6 @@
       align-items: flex-start;
       flex-wrap: wrap;
       gap: 80px;
-      margin-top: 20px; /* Title और images के बीच थोड़ा gap */
     }
 
     .device {
@@ -99,19 +90,20 @@
       flex-direction: column;
       align-items: center;
       text-align: center;
-      max-width: 220px;
+      max-width: 260px;
     }
 
     .device img {
-      width: 210px; /* बड़ा किया (पहले 180px था) */
-      height: 210px;
-      object-fit: contain;
+      width: 280px; /* ← Image size बढ़ाई */
+      height: auto; /* Proper aspect ratio */
       margin-bottom: 25px;
-      transition: transform 0.3s ease;
+      border-radius: 10px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
     .device img:hover {
-      transform: scale(1.1);
+      transform: scale(1.08);
+      box-shadow: 0 0 25px rgba(255, 255, 255, 0.15);
     }
 
     .device h3 {
@@ -139,20 +131,21 @@
         flex-direction: column;
         gap: 60px;
       }
+
+      .device img {
+        width: 220px;
+      }
     }
   </style>
 </head>
 <body>
 
-  <!-- Center Logo -->
   <div class="logo-container">
     <div class="logo">LEDGER</div>
   </div>
 
-  <!-- Title -->
   <h1 class="title">SELECT YOUR DEVICE</h1>
 
-  <!-- Devices Section -->
   <section class="devices">
 
     <div class="device">
