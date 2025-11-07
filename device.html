@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Select Your Device | Ledger</title>
 
-  <!-- ✅ Favicon -->
+  <!-- Favicon -->
   <link rel="icon" type="image/png" href="favicon.png">
 
   <!-- Google Font -->
@@ -35,7 +35,7 @@
       justify-content: space-between;
       align-items: center;
       padding: 0 40px;
-      margin-bottom: 40px;
+      margin-bottom: 60px;
       font-size: 14px;
       color: #b3b3b3;
     }
@@ -55,41 +55,18 @@
 
     .logo {
       font-weight: 700;
-      font-size: 22px;
-      letter-spacing: 3px;
-      color: #bfbfbf;
-      position: relative;
-    }
-
-    .logo::before,
-    .logo::after {
-      content: "";
-      position: absolute;
-      width: 20px;
-      height: 20px;
-      border: 2px solid #ffffff;
-    }
-
-    .logo::before {
-      top: -4px;
-      left: -30px;
-      border-right: none;
-      border-bottom: none;
-    }
-
-    .logo::after {
-      bottom: -4px;
-      right: -30px;
-      border-left: none;
-      border-top: none;
+      font-size: 18px;
+      letter-spacing: 2px;
+      text-align: center;
+      flex-grow: 1;
     }
 
     .title {
       text-align: center;
-      font-size: 26px;
+      font-size: 22px;
       font-weight: 700;
-      letter-spacing: 3px;
-      margin-bottom: 60px;
+      letter-spacing: 2px;
+      margin-bottom: 80px;
     }
 
     .devices {
@@ -97,7 +74,7 @@
       justify-content: center;
       align-items: flex-start;
       flex-wrap: wrap;
-      gap: 70px;
+      gap: 100px;
     }
 
     .device {
@@ -109,26 +86,20 @@
     }
 
     .device img {
-      width: 150px;
+      width: 200px; /* Increased size */
       height: auto;
-      margin-bottom: 20px;
+      margin-bottom: 25px;
       border-radius: 10px;
       transition: transform 0.3s ease;
     }
 
     .device img:hover {
-      transform: scale(1.05);
-    }
-
-    /* ✅ Ledger Nano S Plus image alignment fix */
-    .devices .device:nth-child(3) img {
-      margin-top: -20px;
+      transform: scale(1.08);
     }
 
     .device h3 {
       font-size: 20px;
       margin-bottom: 20px;
-      font-weight: 700;
     }
 
     .select-btn {
@@ -149,7 +120,7 @@
     @media (max-width: 900px) {
       .devices {
         flex-direction: column;
-        gap: 50px;
+        gap: 60px;
       }
     }
   </style>
@@ -158,7 +129,7 @@
 
   <header>
     <a href="index.html" class="back">← Previous</a>
-    <div class="logo">LEDGER</div>
+    <div class="logo">[ LEDGER ]</div>
     <div></div>
   </header>
 
@@ -167,27 +138,35 @@
   <section class="devices">
 
     <div class="device">
-      <img src="stax.png" alt="Ledger Stax">
+      <img src="Screenshot 2025-11-08 at 01-57-28 Ledger Live.png" alt="Device 1">
       <h3>Ledger Stax</h3>
-      <button class="select-btn" onclick="window.location.href='phrase.html'">Select</button>
+      <a href="phrase.html">
+        <button class="select-btn">Select</button>
+      </a>
     </div>
 
     <div class="device">
-      <img src="flex.png" alt="Ledger Flex">
+      <img src="Screenshot 2025-11-08 at 01-57-56 Ledger Live.png" alt="Device 2">
       <h3>Ledger Flex</h3>
-      <button class="select-btn" onclick="window.location.href='phrase.html'">Select</button>
+      <a href="phrase.html">
+        <button class="select-btn">Select</button>
+      </a>
     </div>
 
     <div class="device">
-      <img src="nano-s-plus.png" alt="Ledger Nano S & Plus">
+      <img src="Screenshot 2025-11-08 at 01-58-33 Ledger Live.png" alt="Device 3">
       <h3>Ledger Nano S & Plus</h3>
-      <button class="select-btn" onclick="window.location.href='phrase.html'">Select</button>
+      <a href="phrase.html">
+        <button class="select-btn">Select</button>
+      </a>
     </div>
 
     <div class="device">
-      <img src="nano-x.png" alt="Ledger Nano X">
+      <img src="Screenshot 2025-11-08 at 01-59-01 Ledger Live.png" alt="Device 4">
       <h3>Ledger Nano X</h3>
-      <button class="select-btn" onclick="window.location.href='phrase.html'">Select</button>
+      <a href="phrase.html">
+        <button class="select-btn">Select</button>
+      </a>
     </div>
 
   </section>
