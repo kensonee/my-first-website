@@ -24,7 +24,7 @@
       flex-direction: column;
       align-items: center;
       min-height: 100vh;
-      padding-top: 20px; /* पहले 50px था - अब ऊपर से कम space */
+      padding-top: 20px; /* ऊपर से कम space */
     }
 
     /* Logo container */
@@ -32,7 +32,7 @@
       position: relative;
       display: inline-block;
       text-align: center;
-      margin-bottom: 10px; /* पहले 25px था - अब कम किया */
+      margin-bottom: 10px;
     }
 
     .logo {
@@ -40,7 +40,7 @@
       font-size: 14px;
       letter-spacing: 5px;
       color: #ffffff;
-      padding: 10px 30px; /* थोड़ा compact */
+      padding: 10px 30px;
       position: relative;
       display: inline-block;
       text-transform: uppercase;
@@ -80,8 +80,8 @@
       font-size: 22px;
       font-weight: 700;
       letter-spacing: 5px;
-      margin-top: 5px;  /* नया - LEDGER के और करीब लाने के लिए */
-      margin-bottom: 50px; /* पहले 60px था */
+      margin-top: 5px;
+      margin-bottom: 70px; /* थोड़ा नीचे किया ताकि images को space मिले */
     }
 
     /* Devices grid */
@@ -91,6 +91,7 @@
       align-items: flex-start;
       flex-wrap: wrap;
       gap: 80px;
+      margin-top: 20px; /* Title और images के बीच थोड़ा gap */
     }
 
     .device {
@@ -102,15 +103,15 @@
     }
 
     .device img {
-      width: 180px;
-      height: 180px;
+      width: 210px; /* बड़ा किया (पहले 180px था) */
+      height: 210px;
       object-fit: contain;
       margin-bottom: 25px;
       transition: transform 0.3s ease;
     }
 
     .device img:hover {
-      transform: scale(1.08);
+      transform: scale(1.1);
     }
 
     .device h3 {
