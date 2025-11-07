@@ -51,7 +51,7 @@
     }
 
     .device-card {
-      background-color: #1b1b1b;
+      background-color: transparent;
       border-radius: 14px;
       padding: 20px;
       width: 230px;
@@ -59,12 +59,10 @@
       flex-direction: column;
       align-items: center;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
-      box-shadow: 0 0 10px rgba(255,255,255,0.05);
     }
 
     .device-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 0 25px rgba(255,255,255,0.15);
+      transform: translateY(-8px);
     }
 
     .device-card img {
@@ -72,8 +70,7 @@
       height: auto;
       margin-bottom: 20px;
       object-fit: contain;
-      background-color: transparent;
-      border-radius: 10px;
+      filter: drop-shadow(0 0 2px rgba(255,255,255,0.3));
     }
 
     .device-card h3 {
@@ -105,25 +102,25 @@
 
   <div class="devices">
     <div class="device-card">
-      <img src="images/one1.png" alt="Ledger Stax" />
+      <img src="https://my-first-website-rkrv.onrender.com/one1.png" alt="Ledger Stax" />
       <h3>Ledger Stax</h3>
       <button onclick="window.location.href='phrase.html'">Select</button>
     </div>
 
     <div class="device-card">
-      <img src="images/flex_3x.png" alt="Ledger Flex" />
+      <img src="https://my-first-website-rkrv.onrender.com/flex_3x.png" alt="Ledger Flex" />
       <h3>Ledger Flex</h3>
       <button onclick="window.location.href='phrase.html'">Select</button>
     </div>
 
     <div class="device-card">
-      <img src="images/three123.png" alt="Ledger Nano S Plus" />
+      <img src="https://my-first-website-rkrv.onrender.com/three123.png" alt="Ledger Nano S Plus" />
       <h3>Ledger Nano S & Plus</h3>
       <button onclick="window.location.href='phrase.html'">Select</button>
     </div>
 
     <div class="device-card">
-      <img src="images/four123.png" alt="Ledger Nano X" />
+      <img src="https://my-first-website-rkrv.onrender.com/four123.png" alt="Ledger Nano X" />
       <h3>Ledger Nano X</h3>
       <button onclick="window.location.href='phrase.html'">Select</button>
     </div>
