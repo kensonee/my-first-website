@@ -85,9 +85,11 @@
       max-width: 220px;
     }
 
+    /* ✅ All images same height for perfect alignment */
     .device img {
-      width: 200px; /* Increased size */
-      height: auto;
+      height: 180px;
+      width: auto;
+      object-fit: contain;
       margin-bottom: 25px;
       border-radius: 10px;
       transition: transform 0.3s ease;
@@ -153,7 +155,7 @@
       </a>
     </div>
 
-    <div class="device image-container">
+    <div class="device">
       <img src="Screenshot 2025-11-08 at 01-58-33 Ledger Live.png" alt="Device 3">
       <h3>Ledger Nano S & Plus</h3>
       <a href="phrase.html">
